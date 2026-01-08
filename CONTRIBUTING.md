@@ -1,142 +1,74 @@
-# Contributing Guidelines
+# Contributing to DevOps Playbooks
 
-Thank you for considering contributing to DevOps Playbooks! This document provides guidelines for contributing articles and improvements to the site.
+Thank you for your interest in contributing! This guide will help you get started.
 
-## How to Contribute
+## 🚀 Quick Contribution Guide
 
-### 1. Adding New Articles
+### 1. Setup Development Environment
 
-#### Quick Method
+```bash
+# Fork the repository on GitHub
+# Clone your fork
+git clone https://github.com/yourusername/devops-playbooks.git
+cd devops-playbooks
 
-1. **Use the Template**
-   ```bash
-   cp _articles/TEMPLATE.md _articles/YYYY-MM-DD-your-article-title.md
-   ```
+# Install dependencies
+npm install
 
-2. **Fill in the Frontmatter**
-   - Add appropriate title, date, category, and tags
-   - Write a compelling description
-   - Specify your name as author
-
-3. **Write Your Content**
-   - Follow the template structure
-   - Include practical examples
-   - Add code snippets with proper syntax highlighting
-   - Use clear, concise language
-
-4. **Test Locally**
-   ```bash
-   bundle exec jekyll serve
-   ```
-   View at `http://localhost:4000`
-
-5. **Submit Pull Request**
-   - Create a feature branch
-   - Commit your article
-   - Push to your fork
-   - Open a PR with description
-
-#### Detailed Method
-
-See [README.md](README.md) for comprehensive article creation instructions.
-
-### 2. Improving Existing Articles
-
-Found an error or want to improve an article?
-
-1. **Fork the Repository**
-2. **Make Your Changes**
-   - Fix typos or errors
-   - Update outdated information
-   - Add missing examples
-   - Improve clarity
-3. **Test Your Changes Locally**
-4. **Submit Pull Request**
-
-### 3. Suggesting New Topics
-
-Have an idea for a new article?
-
-1. **Check Existing Issues** to avoid duplicates
-2. **Open New Issue** with:
-   - Proposed title
-   - Brief outline
-   - Target audience
-   - Value proposition
-3. **Wait for Feedback** before writing
-
-## Article Guidelines
-
-### Content Standards
-
-#### Required Elements
-
-- ✅ Clear, descriptive title
-- ✅ Publication date
-- ✅ Appropriate category
-- ✅ Relevant tags (3-5 recommended)
-- ✅ Meta description (150-160 characters)
-- ✅ Introduction with "What You'll Learn"
-- ✅ Prerequisites section
-- ✅ Step-by-step instructions
-- ✅ Code examples (tested and working)
-- ✅ Best practices section
-- ✅ Troubleshooting guide
-- ✅ Resources/links section
-- ✅ Conclusion with key takeaways
-
-#### Quality Standards
-
-**Writing Style:**
-- Clear and concise
-- Professional but approachable
-- Active voice preferred
-- Short paragraphs (3-4 sentences)
-- Bullet points for lists
-- Avoid jargon without explanation
-
-**Code Examples:**
-- Must be tested and working
-- Include language specification
-- Add comments for complex code
-- Show expected output when relevant
-- Use syntax highlighting
-
-**Structure:**
-- Logical flow from setup to implementation
-- Progressive complexity
-- Clear section headings
-- Table of contents for long articles
-
-### Technical Standards
-
-#### File Naming
-
-```
-_articles/YYYY-MM-DD-article-slug.md
+# Start development server
+npm start
 ```
 
-**Examples:**
-- `_articles/2025-01-08-docker-best-practices.md`
-- `_articles/2025-01-15-github-actions-ci-cd.md`
+### 2. Create a New Article
 
-#### Frontmatter Format
+```bash
+# Copy template
+cp src/articles/TEMPLATE.md src/articles/YYYY-MM-DD-your-title.md
+
+# Edit the file
+# - Fill in frontmatter
+# - Write your content
+# - Save and preview at localhost:8080
+```
+
+### 3. Submit Your Contribution
+
+```bash
+# Create feature branch
+git checkout -b article/your-article-name
+
+# Add your changes
+git add .
+git commit -m "Add article: Your Article Title"
+
+# Push to your fork
+git push origin article/your-article-name
+
+# Create Pull Request on GitHub
+```
+
+## 📝 Article Guidelines
+
+### Frontmatter Requirements
 
 ```yaml
 ---
-layout: article
-title: "Article Title (50-60 chars)"
-date: YYYY-MM-DD
-category: Category Name
-tags: [tag1, tag2, tag3, tag4]
-author: Your Name
-description: "SEO-friendly description (150-160 chars)"
+layout: article.njk         # Required
+title: "Article Title"      # Required: 50-60 characters
+date: YYYY-MM-DD           # Required: Publication date
+category: Category Name     # Required: See categories below
+tags:                      # Required: Start with "articles"
+  - articles
+  - tag1
+  - tag2
+author: Your Name          # Optional
+description: "Summary"     # Recommended: 150-160 chars
 ---
 ```
 
-#### Category Options
+### Available Categories
 
-Choose **one** category:
+Choose **one**:
 - Code Quality
 - CI/CD
 - DevOps
@@ -144,20 +76,39 @@ Choose **one** category:
 - Security
 - Performance
 
-#### Tag Guidelines
+### Content Standards
 
-- Use 3-5 relevant tags
-- Use existing tags when possible
-- Lowercase, hyphenated format
-- Technology names as written (e.g., `SonarQube`, `GitHub Actions`)
+**Required Sections:**
+- Overview / Introduction
+- Prerequisites
+- Step-by-step instructions
+- Best practices
+- Troubleshooting
+- Resources/links
+- Conclusion
 
-#### Markdown Best Practices
+**Code Examples:**
+- Must be tested and working
+- Include language specification
+- Add comments for clarity
+- Show expected output
+
+**Writing Style:**
+- Clear and concise
+- Professional but approachable
+- Short paragraphs (3-4 sentences)
+- Use bullet points for lists
+- Avoid unexplained jargon
+
+## 🎨 Style Guide
+
+### Markdown Formatting
 
 **Headers:**
 ```markdown
-## Main Section (H2)
-### Subsection (H3)
-#### Detail Section (H4)
+## H2 for main sections
+### H3 for subsections
+#### H4 for details
 ```
 
 **Code Blocks:**
@@ -167,142 +118,160 @@ code here
 ```
 ````
 
-**Supported Languages:**
-- `bash`, `sh`, `shell`
-- `javascript`, `js`
-- `python`, `py`
-- `yaml`, `yml`
-- `json`
-- `markdown`, `md`
-- `dockerfile`
-- Many more...
-
-**Links:**
+**Emphasis:**
 ```markdown
-[Link Text](https://example.com)
+**Bold** for important terms
+*Italic* for emphasis
+`code` for inline code
 ```
 
-**Images:**
-```markdown
-![Alt Text](/assets/images/image-name.png)
-```
+### File Naming
 
-Store images in `assets/images/`
+Articles: `YYYY-MM-DD-article-title.md`
 
-**Tables:**
-```markdown
-| Column 1 | Column 2 | Column 3 |
-|----------|----------|----------|
-| Data 1   | Data 2   | Data 3   |
-```
+Examples:
+- `2025-01-08-docker-best-practices.md`
+- `2025-01-15-github-actions-guide.md`
 
-### SEO Guidelines
+## 🔍 Review Process
 
-1. **Title:**
-   - 50-60 characters
-   - Include main keyword
-   - Descriptive and specific
+### Pull Request Checklist
 
-2. **Description:**
-   - 150-160 characters
-   - Include primary keywords
-   - Compelling call-to-value
-   - Complete sentence
+Before submitting:
+- [ ] Article follows TEMPLATE.md structure
+- [ ] Frontmatter is complete and correct
+- [ ] Code examples are tested
+- [ ] No spelling/grammar errors
+- [ ] Links work correctly
+- [ ] Images are optimized (<500KB)
+- [ ] Builds successfully (`npm run build`)
 
-3. **Content:**
-   - Use headings hierarchically
-   - Include internal links
-   - Add alt text to images
-   - Use relevant keywords naturally
+### Review Timeline
 
-4. **Tags:**
-   - Relevant to content
-   - Mix broad and specific
-   - Help with discoverability
+- Initial review: 2-3 business days
+- Feedback/revisions: 1-2 business days
+- Merge: After approval
 
-## Code of Conduct
+## 🐛 Reporting Issues
+
+### Bug Reports
+
+Include:
+- Description of the issue
+- Steps to reproduce
+- Expected behavior
+- Actual behavior
+- Screenshots (if applicable)
+- Browser/OS information
+
+### Feature Requests
+
+Include:
+- Description of the feature
+- Use case / problem it solves
+- Proposed implementation (optional)
+
+## 💡 Contribution Ideas
+
+### Articles Needed
+
+- DevOps automation guides
+- CI/CD pipeline tutorials
+- Code quality best practices
+- Security hardening guides
+- Performance optimization tips
+- Tool comparison articles
+
+### Site Improvements
+
+- Enhanced search functionality
+- Tag cloud visualization
+- Reading time estimates
+- Related articles suggestions
+- Author profiles
+
+## 🎯 Quality Standards
+
+### Technical Accuracy
+
+- Information must be current
+- Commands/code must work
+- Links must be valid
+- Screenshots must be recent
+
+### Originality
+
+- No plagiarism
+- Original examples
+- Cite sources when referencing
+- Add personal insights
+
+### Usefulness
+
+- Solve real problems
+- Provide working solutions
+- Include practical examples
+- Link to resources
+
+## 🤝 Code of Conduct
 
 ### Be Respectful
 
-- Use welcoming and inclusive language
-- Respect differing viewpoints
-- Accept constructive criticism gracefully
-- Focus on what's best for the community
+- Use welcoming language
+- Respect different viewpoints
+- Accept constructive feedback
+- Focus on what's best for community
 
 ### Be Professional
 
-- Keep discussions technical and relevant
-- Avoid personal attacks or trolling
+- Keep discussions technical
+- Avoid personal attacks
 - No spam or self-promotion
-- Follow GitHub's community guidelines
+- Follow GitHub guidelines
 
 ### Be Helpful
 
 - Provide constructive feedback
 - Help newcomers
-- Share knowledge generously
-- Acknowledge others' contributions
+- Share knowledge
+- Acknowledge contributions
 
-## Review Process
+## 📚 Resources
 
-### Pull Request Review
-
-When you submit a PR, maintainers will review:
-
-1. **Content Quality**
-   - Accuracy of information
-   - Clarity of writing
-   - Completeness of examples
-
-2. **Technical Correctness**
-   - Working code examples
-   - Proper configuration
-   - Best practices adherence
-
-3. **Style Compliance**
-   - Follows template structure
-   - Proper formatting
-   - Consistent with site style
-
-4. **SEO Optimization**
-   - Proper metadata
-   - Good descriptions
-   - Appropriate tags
-
-### Feedback Timeline
-
-- Initial review: 2-3 business days
-- Follow-up reviews: 1-2 business days
-- We'll provide constructive feedback
-- Feel free to ask questions
-
-## Getting Help
-
-### Questions?
-
-- **Content Questions:** Open a GitHub issue
-- **Technical Issues:** Check README.md or open issue
-- **Style Questions:** Review this guide or ask in issue
-
-### Resources
-
+### Writing
 - [Markdown Guide](https://www.markdownguide.org/)
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
+- [Technical Writing Guide](https://developers.google.com/tech-writing)
 
-## Recognition
+### Development
+- [Eleventy Docs](https://www.11ty.dev/docs/)
+- [Nunjucks Docs](https://mozilla.github.io/nunjucks/)
+
+### Tools
+- [Grammarly](https://www.grammarly.com/) - Grammar checking
+- [Hemingway](http://www.hemingwayapp.com/) - Readability
+- [Carbon](https://carbon.now.sh/) - Code screenshots
+
+## 🎖️ Recognition
 
 Contributors will be:
 - Listed as article authors
+- Mentioned in release notes
 - Acknowledged in commit history
-- Mentioned in release notes (for significant contributions)
+- Featured in README (for significant contributions)
 
-## License
+## 📧 Questions?
 
-By contributing, you agree that your contributions will be licensed under the same license as the project (MIT License).
+- **General questions**: Open a Discussion
+- **Bug reports**: Open an Issue  
+- **Feature requests**: Open an Issue
+- **Other**: Email us or comment on relevant issue
+
+## 📄 License
+
+By contributing, you agree your contributions will be licensed under the same license as this project (MIT License).
 
 ---
 
-**Thank you for contributing to DevOps Playbooks!** 🎉
+**Thank you for contributing!** 🙏
 
-Your knowledge and expertise help developers worldwide improve their practices and build better software.
+Your knowledge helps developers worldwide build better software.

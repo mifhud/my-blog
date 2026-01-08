@@ -1,0 +1,19 @@
+{
+  "title": "DevOps Playbooks",
+  "description": "Technical playbooks and guides for modern development practices",
+  "author": "Miftahul Huda",
+  "url": "https://miftahul-huda.github.io/lms-io",
+  "language": "en",
+  "theme": {
+    "primary": "#0066cc",
+    "secondary": "#6c757d",
+    "success": "#28a745",
+    "warning": "#ffc107",
+    "danger": "#dc3545"
+  },
+  "navigation": [
+    { "title": "Home", "url": "/" },
+    { "title": "Articles", "url": "/articles/" },
+    { "title": "About", "url": "/about/" }
+  ]
+}

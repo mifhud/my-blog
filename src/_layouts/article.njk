@@ -1,0 +1,66 @@
+---
+layout: base.njk
+---
+
+<article class="article-page">
+  <header class="article-header">
+    <h1 class="article-title">{{ title }}</h1>
+    
+    <div class="article-meta">
+      <time datetime="{{ page.date | dateISO }}">
+        {{ page.date | dateReadable }}
+      </time>
+      
+      {% if author %}
+      <span class="author">by {{ author }}</span>
+      {% endif %}
+      
+      {% if category %}
+      <span class="category">{{ category }}</span>
+      {% endif %}
+      
+      {% if tags %}
+      <div class="tags">
+        {% for tag in tags %}
+        {% if tag != "articles" %}
+        <span class="tag">{{ tag }}</span>
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    
+    {% if description %}
+    <p class="article-description">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="article-content">
+    {{ content | safe }}
+  </div>
+
+  <footer class="article-footer">
+    <div class="article-navigation">
+      {% set previousPost = collections.articles | getPreviousCollectionItem(page) %}
+      {% set nextPost = collections.articles | getNextCollectionItem(page) %}
+      
+      {% if previousPost %}
+      <div class="prev-article">
+        <span class="label">← Previous Article</span>
+        <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+      </div>
+      {% endif %}
+      
+      {% if nextPost %}
+      <div class="next-article">
+        <span class="label">Next Article →</span>
+        <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a>
+      </div>
+      {% endif %}
+    </div>
+    
+    <div class="back-to-articles">
+      <a href="/articles/">← Back to All Articles</a>
+    </div>
+  </footer>
+</article>

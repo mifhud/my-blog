@@ -1,421 +1,472 @@
-# 🎉 GitHub Pages Site - Ready to Deploy!
+# 🎉 DevOps Playbooks - Node.js Edition
 
-## ✅ What's Been Created
+## ✅ What You Got
 
-Struktur lengkap GitHub Pages untuk website artikel teknis Anda telah dibuat dengan:
+Struktur lengkap GitHub Pages dengan **Node.js + Eleventy (11ty)**:
 
-### 📁 Structure
 ```
-github-pages/
-├── _articles/           → Artikel Anda (1 artikel + template)
-├── _layouts/            → Layout pages
-├── _includes/           → Header & footer
-├── assets/              → CSS, JS, images
-├── .github/workflows/   → Auto-deployment
-└── Documentation        → Complete guides
+github-pages-node/
+├── src/
+│   ├── articles/              # ✍️ Artikel Anda (1 + template)
+│   ├── _layouts/              # 📄 Page layouts  
+│   ├── _includes/             # 🧩 Components
+│   ├── _data/                 # ⚙️ Configuration
+│   └── assets/                # 🎨 CSS, JS, Images
+├── .eleventy.js               # ⚙️ Eleventy config
+├── package.json               # 📦 Dependencies
+└── .github/workflows/         # 🚀 Auto-deployment
 ```
 
-### 📝 Files Created
+### 🌟 Keunggulan Node.js Version
 
-**Articles:**
-- ✅ SonarQube Playbook (artikel pertama Anda)
-- ✅ TEMPLATE.md (untuk artikel baru)
+| Feature | Node.js (Eleventy) | Ruby (Jekyll) |
+|---------|-------------------|---------------|
+| Setup | ✅ `npm install` | ❌ Ruby + Bundle setup |
+| Build Speed | ⚡ Super Fast | 🐢 Slower |
+| Ecosystem | 🎯 npm (familiar) | 💎 Ruby gems |
+| Learning | 😊 Easy | 🤔 Moderate |
+| Hot Reload | ✅ Built-in | ⚠️ Requires config |
+| File Watch | ⚡ Lightning fast | 🔄 Slower |
 
-**Layouts:**
-- ✅ default.html (base layout)
-- ✅ article.html (article layout)
+## 🚀 Setup Lokal (3 Menit)
 
-**Components:**
-- ✅ header.html (navigation)
-- ✅ footer.html (footer)
-
-**Pages:**
-- ✅ index.md (homepage)
-- ✅ articles.md (articles listing)
-- ✅ about.md (about page)
-
-**Assets:**
-- ✅ style.css (complete styling with dark mode)
-- ✅ main.js (interactive features)
-
-**Configuration:**
-- ✅ _config.yml (Jekyll config)
-- ✅ Gemfile (dependencies)
-- ✅ .gitignore (git rules)
-- ✅ jekyll-deploy.yml (auto-deploy)
-
-**Documentation:**
-- ✅ README.md (complete guide)
-- ✅ QUICKSTART.md (5-min start)
-- ✅ CONTRIBUTING.md (contributor guide)
-- ✅ STRUCTURE.md (structure overview)
-
-## 🚀 Quick Deployment Guide
-
-### Step 1: Local Setup (5 minutes)
+### Step 1: Install Dependencies
 
 ```bash
-# Navigate to folder
-cd github-pages
+# Navigate ke folder
+cd github-pages-node
 
-# Install dependencies
-bundle install
+# Install packages (pertama kali saja)
+npm install
 
-# Run local server
-bundle exec jekyll serve
-
-# Open browser
-open http://localhost:4000
+# Selesai! ✅
 ```
 
-### Step 2: GitHub Setup (5 minutes)
+### Step 2: Start Development Server
 
 ```bash
-# Initialize git
-git init
+# Start server
+npm start
 
-# Create .gitignore if not exists
-cat > .gitignore << 'EOF'
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-Gemfile.lock
-EOF
-
-# Add all files
-git add .
-
-# Commit
-git commit -m "Initial commit: DevOps Playbooks site"
-
-# Add remote (replace with your repo URL)
-git remote add origin https://github.com/username/repo-name.git
-
-# Push to GitHub
-git push -u origin main
+# Server berjalan di:
+# → http://localhost:8080
 ```
 
-### Step 3: Enable GitHub Pages (2 minutes)
+**Features:**
+- ✅ Hot reload (auto-refresh saat file berubah)
+- ✅ Fast build (<1 detik)
+- ✅ Live preview
+- ✅ No cache issues
 
-1. Go to your repository on GitHub
-2. Click **Settings** tab
-3. Scroll to **Pages** section in sidebar
-4. Under "Build and deployment":
-   - Source: **Deploy from a branch**
-   - Branch: **main**
-   - Folder: **/ (root)**
-5. Click **Save**
-6. Wait 2-3 minutes for first deployment
+## ✍️ Membuat Artikel Baru
 
-### Step 4: Access Your Site
-
-Your site will be available at:
-```
-https://username.github.io/repo-name
-```
-
-## 📝 Creating New Articles
-
-### Method 1: Using Template (Recommended)
+### Quick Method (30 detik)
 
 ```bash
 # Copy template
-cp _articles/TEMPLATE.md _articles/2025-01-08-my-new-article.md
+cp src/articles/TEMPLATE.md src/articles/2025-01-08-artikel-baru.md
 
-# Edit file
-# - Update frontmatter (title, date, category, tags)
-# - Write your content
-# - Save
+# Edit file (update frontmatter + content)
+code src/articles/2025-01-08-artikel-baru.md
 
-# Test locally
-bundle exec jekyll serve
-
-# Commit and push
-git add _articles/
-git commit -m "Add new article: My New Article"
-git push
+# Save → Langsung muncul di browser! 🎉
 ```
 
-### Method 2: Manual Creation
-
-Create `_articles/YYYY-MM-DD-slug.md`:
+### Frontmatter Format
 
 ```yaml
 ---
-layout: article
-title: "Your Article Title"
+layout: article.njk
+title: "Judul Artikel Anda"
 date: 2025-01-08
-category: Code Quality
-tags: [tag1, tag2, tag3]
-author: Your Name
-description: "Brief description for SEO"
+category: Code Quality  # atau CI/CD, DevOps, AI Tools, dll
+tags:
+  - articles         # WAJIB ada
+  - tag1
+  - tag2
+author: Nama Anda
+description: "Deskripsi singkat untuk SEO (150-160 karakter)"
 ---
 
-## Overview
-Your content here...
+## Content Anda
+
+Tulis artikel di sini...
 ```
 
-## 🎨 Customization Guide
+## 🎨 Kustomisasi Site
 
-### Change Colors
+### Update Info Website
 
-Edit `assets/css/style.css`:
+Edit `src/_data/metadata.json`:
 
-```css
-:root {
-  --primary-color: #2563eb;    /* Main color */
-  --secondary-color: #1e40af;  /* Accent color */
-  --text-color: #1f2937;       /* Text color */
+```json
+{
+  "title": "Judul Website Anda",
+  "description": "Deskripsi website",
+  "url": "https://username.github.io/repo-name",
+  "author": {
+    "name": "Nama Anda",
+    "email": "email@example.com",
+    "github": "username"
+  }
 }
 ```
 
-### Update Site Info
+### Ubah Warna Theme
 
-Edit `_config.yml`:
+Edit `src/assets/css/style.css`:
 
-```yaml
-title: Your Site Title
-description: Your description
-author:
-  name: Your Name
-  email: your@email.com
+```css
+:root {
+  --primary-color: #2563eb;    /* Warna utama */
+  --secondary-color: #1e40af;  /* Warna sekunder */
+  --text-color: #1f2937;       /* Warna teks */
+}
 ```
 
-### Modify Navigation
+### Tambah Menu Navigasi
 
-Edit `_config.yml`:
+Edit `src/_data/metadata.json`:
 
-```yaml
-navigation:
-  - title: Home
-    url: /
-  - title: Articles
-    url: /articles/
-  - title: Your Page
-    url: /your-page/
+```json
+{
+  "navigation": [
+    { "title": "Home", "url": "/" },
+    { "title": "Articles", "url": "/articles/" },
+    { "title": "Menu Baru", "url": "/menu-baru/" }
+  ]
+}
 ```
 
-## 📚 Article Categories
+Buat halaman baru `src/menu-baru.md`:
 
-Choose one category for each article:
+```markdown
+---
+layout: base.njk
+title: Menu Baru
+---
 
-- **Code Quality** - SonarQube, linting, testing
-- **CI/CD** - GitHub Actions, Jenkins, automation
-- **DevOps** - Infrastructure, monitoring, containers
-- **AI Tools** - Claude Code, MCP, AI development
-- **Security** - Best practices, vulnerability management
-- **Performance** - Optimization, scaling, profiling
+# Konten Menu Baru
+```
 
-## 🎯 Features Included
+## 🌐 Deploy ke GitHub Pages
 
-### ✨ Core Features
-- ✅ Responsive design (mobile, tablet, desktop)
-- ✅ Dark mode support
-- ✅ SEO optimized
-- ✅ RSS feed
-- ✅ Syntax highlighting for code
-- ✅ Copy buttons for code blocks
-- ✅ Article navigation
-- ✅ Category filtering
+### Method 1: Quick Deploy (5 Menit)
 
-### 🔧 Developer Features
-- ✅ Hot reload in development
-- ✅ GitHub Actions auto-deployment
-- ✅ Jekyll build optimization
-- ✅ Asset pipeline
-- ✅ Markdown support
-
-### 📊 Content Features
-- ✅ Article templates
-- ✅ Frontmatter structure
-- ✅ Tag system
-- ✅ Category system
-- ✅ Author attribution
-- ✅ Publication dates
-
-## 📖 Documentation Map
-
-1. **START_HERE.md** (this file) - Quick overview
-2. **QUICKSTART.md** - 5-minute setup
-3. **README.md** - Complete reference
-4. **STRUCTURE.md** - Directory structure
-5. **CONTRIBUTING.md** - How to contribute
-
-## 🔍 Common Tasks
-
-### Add New Article
 ```bash
-cp _articles/TEMPLATE.md _articles/$(date +%Y-%m-%d)-title.md
-# Edit file, test, commit, push
+# 1. Initialize git (jika belum)
+git init
+
+# 2. Add all files
+git add .
+
+# 3. Commit
+git commit -m "Initial commit: DevOps Playbooks"
+
+# 4. Create GitHub repo (di website GitHub)
+# → Buat repo baru: devops-playbooks
+
+# 5. Add remote dan push
+git remote add origin https://github.com/username/devops-playbooks.git
+git push -u origin main
 ```
 
-### Update Homepage
+### Method 2: Detailed Steps
+
+#### A. Create GitHub Repository
+
+1. Go to **github.com/new**
+2. Repository name: `devops-playbooks`
+3. Description: "Technical playbooks and guides"
+4. Public or Private (your choice)
+5. **DON'T** initialize with README
+6. Click **Create repository**
+
+#### B. Push Code
+
 ```bash
-nano index.md
-# Make changes, test locally
+# If not initialized
+git init
+git add .
+git commit -m "Initial commit"
+
+# Add remote
+git remote add origin https://github.com/username/devops-playbooks.git
+
+# Push
+git push -u origin main
 ```
 
-### Modify Styles
+#### C. Enable GitHub Pages
+
+1. Go to repository **Settings**
+2. Click **Pages** in left sidebar
+3. Under "Build and deployment":
+   - Source: **GitHub Actions** ✅
+   - (Workflow will auto-detect and deploy)
+4. Save (jika ada tombol Save)
+
+**Done!** 🎉
+
+Website akan live di:
+```
+https://username.github.io/devops-playbooks
+```
+
+**First deployment:** 2-3 menit
+**Updates:** 1-2 menit
+
+Check progress di tab **Actions**.
+
+## 📝 Workflow Menulis Artikel
+
+### 1. Buat Artikel Baru
+
 ```bash
-nano assets/css/style.css
-bundle exec jekyll serve --livereload
+# Copy template dengan nama sesuai format
+cp src/articles/TEMPLATE.md src/articles/$(date +%Y-%m-%d)-judul-artikel.md
 ```
 
-### Check Build Status
-- Visit repository on GitHub
-- Click "Actions" tab
-- View latest workflow run
+### 2. Edit Artikel
 
-## ⚙️ Configuration Options
+```bash
+# Buka dengan editor favorit
+code src/articles/2025-01-08-judul-artikel.md
 
-### Site Settings (`_config.yml`)
-- title, description, baseurl
-- author info
-- navigation menu
-- Jekyll plugins
+# Atau
+nano src/articles/2025-01-08-judul-artikel.md
+```
 
-### Theme Colors (`assets/css/style.css`)
-- Primary/secondary colors
-- Background colors
-- Text colors
-- Border colors
+**Update:**
+- Frontmatter (title, date, category, tags)
+- Content (tulis artikel Anda)
+- Save file
 
-### Layout Structure (`_layouts/`)
-- default.html - base template
-- article.html - article template
+### 3. Preview Lokal
+
+- Server sudah jalan? → Refresh browser
+- Server belum jalan? → `npm start`
+- View di: http://localhost:8080
+
+### 4. Deploy ke Production
+
+```bash
+# Stage changes
+git add .
+
+# Commit dengan message jelas
+git commit -m "Add article: Judul Artikel"
+
+# Push (auto-deploy!)
+git push
+```
+
+**Wait 2-3 minutes** → Artikel live! 🚀
+
+## 🛠️ Available Commands
+
+```bash
+# Development
+npm start              # Start dev server (port 8080)
+npm run build         # Build production site
+npm run clean         # Clean _site directory
+
+# Deploy
+git push              # Push to GitHub → auto-deploy!
+```
+
+## 📊 Artikel Categories
+
+Pilih salah satu:
+
+1. **Code Quality** - SonarQube, linting, testing, code review
+2. **CI/CD** - GitHub Actions, Jenkins, deployment automation
+3. **DevOps** - Docker, Kubernetes, infrastructure, monitoring
+4. **AI Tools** - Claude Code, MCP, AI-assisted development
+5. **Security** - Best practices, vulnerability management, hardening
+6. **Performance** - Optimization, scaling, profiling, caching
+
+## 🎯 File & Folder Penting
+
+```
+src/
+├── articles/                    # ✍️ ARTIKEL DI SINI
+│   ├── TEMPLATE.md              # Template untuk artikel baru
+│   └── 2025-01-08-*.md          # Artikel Anda
+│
+├── _data/
+│   └── metadata.json            # ⚙️ KONFIGURASI WEBSITE
+│
+├── _layouts/                    # Template halaman
+│   ├── base.njk                 # Base layout
+│   └── article.njk              # Article layout
+│
+├── _includes/                   # Components
+│   ├── header.njk               # Header
+│   └── footer.njk               # Footer
+│
+└── assets/
+    ├── css/style.css            # 🎨 STYLING
+    └── js/main.js               # JavaScript
+```
 
 ## 🐛 Troubleshooting
 
-### Build Fails Locally
+### Port sudah dipakai?
 
 ```bash
-# Clear cache
-rm -rf _site .jekyll-cache
-
-# Reinstall dependencies
-bundle install
-
-# Try again
-bundle exec jekyll serve
+# Gunakan port lain
+npx @11ty/eleventy --serve --port=8081
 ```
 
-### GitHub Pages Not Updating
-
-1. Check Actions tab for errors
-2. Wait 5-10 minutes
-3. Hard refresh browser (Ctrl+Shift+R)
-4. Check Pages settings enabled
-
-### Styling Not Showing
+### Perubahan tidak muncul?
 
 ```bash
-# Check file paths in _config.yml
-baseurl: ""  # Leave empty for user sites
-             # Use "/repo-name" for project sites
+# Hard refresh browser
+Ctrl + Shift + R  (Windows/Linux)
+Cmd + Shift + R   (Mac)
+
+# Atau restart server
+# Ctrl+C (stop)
+npm start (restart)
 ```
+
+### Build error?
+
+```bash
+# Clean & rebuild
+npm run clean
+rm -rf node_modules
+npm install
+npm start
+```
+
+### GitHub Pages tidak update?
+
+1. Check tab **Actions** untuk errors
+2. Wait 5 menit
+3. Clear browser cache
+4. Verify Actions workflow enabled
+
+## 📚 Dokumentasi Lengkap
+
+1. **QUICKSTART.md** - Setup super cepat (< 5 menit)
+2. **README.md** - Dokumentasi lengkap
+3. **CONTRIBUTING.md** - Panduan kontribusi
+4. **src/articles/TEMPLATE.md** - Template artikel
+
+## ✨ Features Website
+
+### ✅ Sudah Ada
+
+- Responsive design (mobile-friendly)
+- Dark mode support
+- Syntax highlighting untuk code
+- Copy button di code blocks
+- SEO optimized (meta tags, sitemap)
+- RSS feed auto-generated
+- Fast build times (<1 detik)
+- Hot reload development
+- Category filtering
+- Tag system
+- Article navigation (prev/next)
+
+### 🚀 Ready to Use
+
+- Article system
+- Homepage dengan latest articles
+- Articles listing page
+- About page
+- 404 page
+- Auto-deployment workflow
 
 ## 🎓 Learning Resources
 
-### Jekyll
-- [Jekyll Documentation](https://jekyllrb.com/docs/)
-- [Jekyll Cheat Sheet](https://devhints.io/jekyll)
+### Eleventy (11ty)
+- [Official Docs](https://www.11ty.dev/docs/)
+- [Quick Tips](https://www.11ty.dev/docs/quicktips/)
+- [Tutorials](https://www.11ty.dev/docs/tutorials/)
 
 ### Markdown
 - [Markdown Guide](https://www.markdownguide.org/)
-- [GitHub Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
 
-### GitHub Pages
-- [GitHub Pages Docs](https://docs.github.com/en/pages)
-- [GitHub Actions](https://docs.github.com/en/actions)
+### Nunjucks (Template)
+- [Nunjucks Docs](https://mozilla.github.io/nunjucks/)
 
 ## 💡 Pro Tips
 
-1. **Development Workflow**
-   ```bash
-   # Use livereload for instant updates
-   bundle exec jekyll serve --livereload
-   ```
+### Development
 
-2. **Article Writing**
-   - Start with TEMPLATE.md
-   - Write content in sections
-   - Test code examples
-   - Preview locally before pushing
-
-3. **Git Best Practices**
-   - Commit often
-   - Write clear commit messages
-   - Use feature branches for major changes
-
-4. **Performance**
-   - Optimize images before uploading
-   - Keep code examples concise
-   - Use external links sparingly
-
-## 🎯 Next Steps
-
-### Immediate (Today)
-1. ✅ Review structure
-2. ✅ Test locally
-3. ✅ Deploy to GitHub Pages
-4. ✅ View live site
-
-### Short Term (This Week)
-1. Customize colors and branding
-2. Write 2-3 more articles
-3. Share with colleagues
-4. Gather feedback
-
-### Long Term (This Month)
-1. Establish content calendar
-2. Add more categories
-3. Create custom pages
-4. Build audience
-
-## 🌟 Your Article is Ready!
-
-Artikel SonarQube Playbook Anda sudah siap di:
-- File: `_articles/2025-01-08-sonarqube-issue-fixing-playbook.md`
-- Category: Code Quality
-- Tags: SonarQube, Claude Code, MCP, Code Quality, Automation, AI Tools
-
-**Preview locally:**
 ```bash
-cd github-pages
-bundle exec jekyll serve
-open http://localhost:4000/articles/sonarqube-issue-fixing-playbook/
+# Terminal splits:
+# Terminal 1: npm start (dev server)
+# Terminal 2: git commands, file operations
 ```
 
-## 📞 Support
+### Article Writing
 
-### Documentation
-- Check README.md for details
-- Review QUICKSTART.md for setup
-- Read STRUCTURE.md for organization
+1. ✅ Gunakan TEMPLATE.md
+2. ✅ Isi frontmatter dengan lengkap
+3. ✅ Tulis konten per section
+4. ✅ Test code examples
+5. ✅ Preview lokal sebelum push
 
-### Issues
-- GitHub Issues for bugs
-- Discussions for questions
-- Pull Requests for contributions
+### Git Workflow
 
-### Community
-- Share your articles
-- Help other contributors
-- Improve documentation
+```bash
+# Feature branch untuk artikel baru
+git checkout -b article/nama-artikel
+
+# Make changes...
+
+# Commit & push
+git add .
+git commit -m "Add article: Nama Artikel"
+git push origin article/nama-artikel
+
+# Create PR di GitHub
+```
+
+## 🎉 Ready to Go!
+
+Website Anda **100% siap** untuk digunakan!
+
+**Quick Checklist:**
+- ✅ Extract folder `github-pages-node`
+- ✅ `cd github-pages-node`
+- ✅ `npm install`
+- ✅ `npm start`
+- ✅ Edit `src/_data/metadata.json`
+- ✅ Buat artikel pertama
+- ✅ Push ke GitHub
+- ✅ Enable GitHub Pages
+- ✅ Share knowledge! 📝
+
+## 📧 Need Help?
+
+- **Documentation**: Check README.md
+- **Questions**: Open GitHub Discussion
+- **Bugs**: Open GitHub Issue
+- **Examples**: See existing articles
 
 ---
 
-## 🎉 Ready to Launch!
+## 🚀 Next Commands
 
-Your GitHub Pages site is **100% ready** for deployment!
-
-**Next command:**
 ```bash
-cd github-pages
-bundle exec jekyll serve
+# Start development
+npm start
+
+# Create article  
+cp src/articles/TEMPLATE.md src/articles/$(date +%Y-%m-%d)-title.md
+
+# Deploy
+git add . && git commit -m "Update" && git push
 ```
 
-**Then visit:** `http://localhost:4000`
+**Happy writing!** ✍️🎉
 
-**Happy writing!** 📝✨
+---
+
+*Built with Node.js, Eleventy (11ty), and ❤️*

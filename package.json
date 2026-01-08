@@ -1,0 +1,30 @@
+{
+  "name": "devops-playbooks",
+  "version": "1.0.0",
+  "description": "Technical playbooks and guides for modern development practices",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site",
+    "deploy": "npm run build"
+  },
+  "keywords": [
+    "devops",
+    "playbooks",
+    "technical-documentation",
+    "eleventy",
+    "blog"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^8.6.7"
+  },
+  "dependencies": {
+    "luxon": "^3.4.4"
+  }
+}

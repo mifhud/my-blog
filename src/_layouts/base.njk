@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if title %}{{ title }} | {% endif %}{{ metadata.title }}</title>
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="/feed.xml">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+</head>
+<body>
+  {% include "header.njk" %}
+  
+  <main class="main-content">
+    <div class="container">
+      {{ content | safe }}
+    </div>
+  </main>
+  
+  {% include "footer.njk" %}
+  
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

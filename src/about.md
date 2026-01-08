@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base.njk
 title: About
 permalink: /about/
 ---
@@ -71,9 +71,9 @@ New playbooks are added regularly. Subscribe to our [RSS feed](/feed.xml) to sta
 
 Have questions or feedback? We'd love to hear from you:
 
-- **Email**: [your.email@example.com](mailto:your.email@example.com)
-- **GitHub**: [@yourusername](https://github.com/yourusername)
+- **Email**: [{{ metadata.author.email }}](mailto:{{ metadata.author.email }})
+- **GitHub**: [@{{ metadata.author.github }}](https://github.com/{{ metadata.author.github }})
 
 ---
 
-*This site is built with Jekyll and hosted on GitHub Pages. All content is open source and available for the community.*
+*This site is built with Eleventy (11ty) and hosted on GitHub Pages. All content is open source and available for the community.*

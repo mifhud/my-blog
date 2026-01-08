@@ -3,7 +3,7 @@
 ## 📁 Complete Directory Structure
 
 ```
-lms.io/
+github-pages/
 │
 ├── .github/
 │   └── workflows/

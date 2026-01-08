@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>{{ metadata.title }}</h3>
+        <p>{{ metadata.description }}</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          {% for item in metadata.navigation %}
+          <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <ul class="social-links">
+          <li><a href="https://github.com/{{ metadata.author.github }}" target="_blank">GitHub</a></li>
+          <li><a href="/feed.xml">RSS Feed</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ "now" | date: "%Y" }} {{ metadata.author.name }}. All rights reserved.</p>
+      <p>Built with <a href="https://www.11ty.dev/" target="_blank">Eleventy</a> and hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></p>
+    </div>
+  </div>
+</footer>

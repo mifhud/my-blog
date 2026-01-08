@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base.njk
 title: Articles
 permalink: /articles/
 ---
@@ -12,42 +12,42 @@ Browse our complete collection of technical playbooks and guides.
 
 <div class="category-filter">
   <button class="filter-btn active" data-category="all">All</button>
-  <button class="filter-btn" data-category="Code Quality">Code Quality</button>
-  <button class="filter-btn" data-category="CI/CD">CI/CD</button>
-  <button class="filter-btn" data-category="DevOps">DevOps</button>
-  <button class="filter-btn" data-category="AI Tools">AI Tools</button>
+  {% for cat in metadata.categories %}
+  <button class="filter-btn" data-category="{{ cat }}">{{ cat }}</button>
+  {% endfor %}
 </div>
 
 <div class="articles-list">
-  {% assign sorted_articles = site.articles | sort: 'date' | reverse %}
-  {% for article in sorted_articles %}
-  <article class="article-item" data-category="{{ article.category }}">
+  {% for article in collections.articles %}
+  <article class="article-item" data-category="{{ article.data.category }}">
     <div class="article-item-content">
-      <h2><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h2>
+      <h2><a href="{{ article.url }}">{{ article.data.title }}</a></h2>
       
       <div class="article-meta">
-        <time datetime="{{ article.date | date_to_xmlschema }}">
-          {{ article.date | date: "%B %d, %Y" }}
+        <time datetime="{{ article.date | dateISO }}">
+          {{ article.date | dateReadable }}
         </time>
         
-        {% if article.category %}
-        <span class="category">{{ article.category }}</span>
+        {% if article.data.category %}
+        <span class="category">{{ article.data.category }}</span>
         {% endif %}
         
-        {% if article.tags %}
+        {% if article.data.tags %}
         <div class="tags">
-          {% for tag in article.tags %}
+          {% for tag in article.data.tags %}
+          {% if tag != "articles" %}
           <span class="tag">{{ tag }}</span>
+          {% endif %}
           {% endfor %}
         </div>
         {% endif %}
       </div>
       
-      {% if article.description %}
-      <p class="article-description">{{ article.description }}</p>
+      {% if article.data.description %}
+      <p class="article-description">{{ article.data.description }}</p>
       {% endif %}
       
-      <a href="{{ article.url | relative_url }}" class="read-more">Read Article →</a>
+      <a href="{{ article.url }}" class="read-more">Read Article →</a>
     </div>
   </article>
   {% endfor %}

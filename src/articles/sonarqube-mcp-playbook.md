@@ -1,12 +1,4 @@
----
-layout: article
-title: "SonarQube Issue Fixing Playbook with MCP and Claude Code"
-date: 2025-01-08
-category: Code Quality
-tags: [SonarQube, Claude Code, MCP, Code Quality, Automation, AI Tools]
-author: Development Team
-description: "A comprehensive guide to systematically identify and fix SonarQube issues using Claude Code AI integrated with the SonarQube MCP server. Learn how to automate code quality improvements for bugs, vulnerabilities, security hotspots, and code smells."
----
+# SonarQube Issue Fixing Playbook with MCP and Claude Code
 
 ## Overview
 
@@ -106,13 +98,13 @@ Develop systematic approach for fixing identified issues:
 Issue: {Sonar Issue Name}
 Error Location Code:
 ## {relative-file-path}:{start-line:end-line}
-\```
+```
 1: Code Line 1
 2: Code Line 2
 ...
-\```
+```
 Fix Approach: Fix Approach
-\```
+```
 
 Save in folder: spec/plan/sonar
 Save in different new files based on type:
@@ -137,13 +129,13 @@ Develop systematic approach for fixing identified issues:
 Issue: {Sonar Issue Name}
 Error Location Code:
 ## {relative-file-path}:{start-line:end-line}
-\```
+```
 1: Code Line 1
 2: Code Line 2
 ...
-\```
+```
 Fix Approach: Fix Approach
-\```
+```
 
 Save in folder: spec/plan/sonar
 Save in different severity new file: smell-{severities}-{datemonthhourminutesecond}.md, ...
@@ -183,11 +175,11 @@ spec/plan/sonar/
 Issue: Null pointer dereference
 Error Location Code:
 ## src/services/user.service.ts:45:52
-\```
+```
 45: const userName = user.profile.name;
 46: const userEmail = user.profile.email;
 47: return { userName, userEmail };
-\```
+```
 Fix Approach: Add null check before accessing user.profile
 ```
 
@@ -246,14 +238,14 @@ spec/plan/sonar/
 Issue: Cognitive Complexity is too high
 Error Location Code:
 ## src/utils/validator.ts:120:180
-\```
+```
 120: function validateUserInput(input: any) {
 121:   if (input) {
 122:     if (input.name) {
 123:       if (input.name.length > 0) {
 124:         if (input.email) {
 125:           // ... deeply nested conditions
-\```
+```
 Fix Approach: Refactor using early returns and extract validation logic
 ```
 

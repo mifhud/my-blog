@@ -1,9 +1,13 @@
 ---
-layout: article
+layout: article.njk
 title: "Article Title Here"
-date: YYYY-MM-DD
+date: 2025-01-08
 category: Code Quality  # Choose: Code Quality | CI/CD | DevOps | AI Tools | Security | Performance
-tags: [tag1, tag2, tag3]  # Relevant tags for the article
+tags:
+  - articles
+  - tag1
+  - tag2
+  - tag3
 author: Your Name
 description: "A brief description of the article for SEO and social media previews. Keep it under 160 characters."
 ---
@@ -283,6 +287,5 @@ A: Answer with explanation.
 ---
 
 **Version:** 1.0  
-**Last Updated:** January 8, 2025  
-**Author:** Your Name  
-**Tags:** #tag1 #tag2 #tag3
+**Last Updated:** {{ date | dateReadable }}  
+**Author:** {{ author }}

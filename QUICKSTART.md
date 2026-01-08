@@ -1,314 +1,273 @@
-# Quick Start Guide
+# ⚡ Quick Start Guide - DevOps Playbooks
 
-Get your DevOps Playbooks site up and running in minutes!
+Get your site running in **3 minutes**!
 
-## 🚀 5-Minute Setup
-
-### Prerequisites
-
-- Git installed
-- Ruby 2.7+ installed
-- Bundler gem installed
-
-### Step 1: Clone and Install
+## 🚀 Step 1: Install (30 seconds)
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/devops-playbooks.git
-cd devops-playbooks
+# Navigate to project folder
+cd github-pages-node
 
 # Install dependencies
-bundle install
+npm install
 ```
 
-### Step 2: Run Locally
+## ▶️ Step 2: Start (10 seconds)
 
 ```bash
-# Start Jekyll server
-bundle exec jekyll serve
-
-# Open in browser
-open http://localhost:4000
+# Start development server
+npm start
 ```
 
-That's it! Your site is now running locally. 🎉
+**Done!** Open your browser to: **http://localhost:8080**
 
-## ✍️ Create Your First Article
-
-### Using the Template
+## ✍️ Step 3: Create Your First Article (2 minutes)
 
 ```bash
-# Copy the template
-cp _articles/TEMPLATE.md _articles/2025-01-08-my-first-article.md
+# Copy template
+cp src/articles/TEMPLATE.md src/articles/2025-01-08-my-first-article.md
 
-# Edit the file
-# - Update frontmatter (title, date, category, tags)
-# - Write your content
-# - Save the file
-
-# Refresh browser to see your article
+# Edit with your favorite editor
+code src/articles/2025-01-08-my-first-article.md
+# or
+nano src/articles/2025-01-08-my-first-article.md
 ```
 
-### Article Structure
+### Update the Frontmatter
 
 ```yaml
 ---
-layout: article
+layout: article.njk
 title: "My First DevOps Playbook"
 date: 2025-01-08
 category: DevOps
-tags: [tutorial, beginner, guide]
+tags:
+  - articles
+  - tutorial
+  - beginner
 author: Your Name
-description: "A quick guide to creating your first playbook article"
+description: "My first article on DevOps Playbooks site"
 ---
+```
 
-## Overview
-Your introduction here...
+### Write Your Content
 
-## Prerequisites
-- Requirement 1
-- Requirement 2
+```markdown
+## Introduction
 
-## Step-by-Step Guide
-Your content here...
+This is my first article...
+
+## Setup
+
+Let me show you how to...
+
+```bash
+echo "Hello World"
+```
 
 ## Conclusion
-Wrap up your article...
+
+That's it! Easy, right?
 ```
 
-## 🌐 Deploy to GitHub Pages
+**Save the file** → Changes appear instantly in browser! 🎉
 
-### Step 1: Create GitHub Repository
+## 🎨 Step 4: Customize Site Info (1 minute)
 
-```bash
-# Initialize git (if not already done)
-git init
+Edit `src/_data/metadata.json`:
 
-# Add remote repository
-git remote add origin https://github.com/yourusername/devops-playbooks.git
-
-# Commit and push
-git add .
-git commit -m "Initial commit: DevOps Playbooks site"
-git push -u origin main
-```
-
-### Step 2: Enable GitHub Pages
-
-1. Go to your repository on GitHub
-2. Click **Settings**
-3. Scroll to **Pages** section
-4. Source: **Deploy from a branch**
-5. Branch: **main** / **/(root)**
-6. Click **Save**
-
-### Step 3: Wait for Deployment
-
-- GitHub Actions will automatically build and deploy
-- Check **Actions** tab for deployment status
-- Your site will be live at: `https://yourusername.github.io/devops-playbooks`
-
-## 📝 Common Tasks
-
-### Add a New Article
-
-```bash
-# Create from template
-cp _articles/TEMPLATE.md _articles/$(date +%Y-%m-%d)-new-article.md
-
-# Edit the file
-nano _articles/$(date +%Y-%m-%d)-new-article.md
-
-# Test locally
-bundle exec jekyll serve
-
-# Commit and push
-git add _articles/
-git commit -m "Add new article: Article Title"
-git push
-```
-
-### Update Site Configuration
-
-Edit `_config.yml`:
-
-```yaml
-title: Your Site Title
-description: Your description
-author:
-  name: Your Name
-  email: your.email@example.com
-```
-
-### Add Navigation Link
-
-Edit `_config.yml`:
-
-```yaml
-navigation:
-  - title: Home
-    url: /
-  - title: Articles
-    url: /articles/
-  - title: New Page
-    url: /new-page/
-```
-
-### Customize Colors
-
-Edit `assets/css/style.css`:
-
-```css
-:root {
-  --primary-color: #2563eb;  /* Change this */
-  --secondary-color: #1e40af; /* And this */
+```json
+{
+  "title": "My DevOps Blog",
+  "description": "Technical guides and playbooks",
+  "author": {
+    "name": "Your Name",
+    "email": "your@email.com",
+    "github": "yourusername"
+  }
 }
 ```
 
-## 🐛 Troubleshooting
+## 🌐 Step 5: Deploy to GitHub Pages (5 minutes)
 
-### "Bundle install" fails
-
-```bash
-# Update bundler
-gem install bundler
-
-# Try again
-bundle install
-```
-
-### "Jekyll serve" fails
+### Initialize Git
 
 ```bash
-# Check Ruby version (need 2.7+)
-ruby --version
-
-# Install webrick (needed for Ruby 3.0+)
-bundle add webrick
-
-# Try again
-bundle exec jekyll serve
-```
-
-### Changes not showing
-
-```bash
-# Stop server (Ctrl+C)
-# Clear cache
-rm -rf _site .jekyll-cache
-
-# Restart server
-bundle exec jekyll serve
-```
-
-### GitHub Pages not updating
-
-1. Check **Actions** tab for errors
-2. Wait 5-10 minutes for deployment
-3. Clear browser cache
-4. Try incognito/private window
-
-## 📚 Next Steps
-
-### Learn More
-
-- Read [README.md](README.md) for complete documentation
-- Check [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines
-- Browse [Jekyll Docs](https://jekyllrb.com/docs/) for advanced features
-
-### Customize Your Site
-
-- Add custom pages
-- Modify layouts and styles
-- Add new categories
-- Create custom components
-
-### Share Your Knowledge
-
-- Write technical playbooks
-- Share DevOps best practices
-- Document automation workflows
-- Help others learn
-
-## 💡 Pro Tips
-
-### Development Workflow
-
-```bash
-# Fast development with auto-reload
-bundle exec jekyll serve --livereload
-
-# Build without serving
-bundle exec jekyll build
-
-# Draft articles (won't appear in production)
-bundle exec jekyll serve --drafts
-```
-
-### Article Writing
-
-1. Start with the template
-2. Fill in frontmatter first
-3. Write in sections
-4. Add code examples
-5. Test locally before committing
-6. Push when ready
-
-### Git Workflow
-
-```bash
-# Create feature branch
-git checkout -b article/new-topic
-
-# Make changes
-# ...
-
-# Commit
+# If not already a git repo
+git init
 git add .
-git commit -m "Add article: Topic Name"
-
-# Push and create PR
-git push origin article/new-topic
+git commit -m "Initial commit"
 ```
 
-## 🎯 Quick Reference
+### Create GitHub Repository
 
-### File Locations
+1. Go to **github.com/new**
+2. Name: `devops-playbooks` (or anything you like)
+3. **Don't** initialize with README (we already have files)
+4. Click **Create repository**
 
-```
-_articles/           → Your articles
-_layouts/           → Page templates
-assets/css/         → Stylesheets
-assets/js/          → JavaScript
-_config.yml         → Site configuration
-```
-
-### Key Commands
+### Push to GitHub
 
 ```bash
-bundle install              # Install dependencies
-bundle exec jekyll serve    # Run local server
-bundle exec jekyll build    # Build site
-git add . && git commit     # Save changes
-git push                    # Deploy to GitHub
+# Add remote (replace with your repo URL)
+git remote add origin https://github.com/yourusername/devops-playbooks.git
+
+# Push
+git push -u origin main
 ```
 
-### Categories
+### Enable GitHub Pages
 
-- Code Quality
-- CI/CD
-- DevOps
-- AI Tools
-- Security
-- Performance
+1. Go to repository **Settings**
+2. Click **Pages** in sidebar
+3. Under "Build and deployment":
+   - Source: **GitHub Actions** ✅
+4. Click **Save**
 
-## 🆘 Need Help?
+**Done!** Your site will be live at:
+```
+https://yourusername.github.io/devops-playbooks
+```
 
-- **Documentation:** Check [README.md](README.md)
-- **Issues:** Open a GitHub issue
-- **Questions:** Ask in discussions
-- **Examples:** Browse existing articles
+First deployment takes 2-3 minutes. Check **Actions** tab to see progress.
+
+## 🎯 Common Commands
+
+```bash
+# Development
+npm start              # Start dev server (with hot reload)
+npm run build          # Build for production
+npm run clean          # Clean build directory
+
+# Git
+git add .              # Stage changes
+git commit -m "msg"    # Commit changes
+git push               # Deploy to GitHub (auto-deploys site!)
+```
+
+## 📝 Writing Workflow
+
+1. **Create article:**
+   ```bash
+   cp src/articles/TEMPLATE.md src/articles/$(date +%Y-%m-%d)-title.md
+   ```
+
+2. **Edit article:**
+   - Update frontmatter
+   - Write content
+   - Save (auto-reloads!)
+
+3. **Deploy:**
+   ```bash
+   git add .
+   git commit -m "Add article: Title"
+   git push
+   ```
+
+That's it! Article is live in 2-3 minutes.
+
+## 🎨 Quick Customizations
+
+### Change Colors
+
+Edit `src/assets/css/style.css`:
+
+```css
+:root {
+  --primary-color: #your-color;
+  --secondary-color: #your-color;
+}
+```
+
+### Add Navigation Item
+
+Edit `src/_data/metadata.json`:
+
+```json
+{
+  "navigation": [
+    { "title": "Home", "url": "/" },
+    { "title": "Articles", "url": "/articles/" },
+    { "title": "New Page", "url": "/new-page/" }
+  ]
+}
+```
+
+Create `src/new-page.md`:
+
+```markdown
+---
+layout: base.njk
+title: New Page
+---
+
+# New Page Content
+```
+
+## 🐛 Quick Fixes
+
+### Port in use?
+```bash
+npx @11ty/eleventy --serve --port=8081
+```
+
+### Changes not showing?
+```bash
+# Hard refresh: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+```
+
+### Build error?
+```bash
+npm run clean
+npm install
+npm start
+```
+
+## 📚 Learn More
+
+- **Full Documentation**: [README.md](README.md)
+- **Article Template**: [src/articles/TEMPLATE.md](src/articles/TEMPLATE.md)
+- **Example Article**: [src/articles/2025-01-08-sonarqube-playbook.md](src/articles/2025-01-08-sonarqube-playbook.md)
+- **Eleventy Docs**: [11ty.dev/docs](https://www.11ty.dev/docs/)
+
+## ✅ Quick Checklist
+
+Setup:
+- ✅ `npm install`
+- ✅ `npm start`
+- ✅ View at localhost:8080
+
+Customize:
+- ✅ Edit `src/_data/metadata.json`
+- ✅ Update colors in `style.css`
+
+Write:
+- ✅ Copy TEMPLATE.md
+- ✅ Update frontmatter
+- ✅ Write content
+- ✅ Save & preview
+
+Deploy:
+- ✅ `git init` & `git add .`
+- ✅ Create GitHub repo
+- ✅ `git push`
+- ✅ Enable GitHub Pages (Actions)
+- ✅ Visit live site!
+
+## 🎉 That's It!
+
+You now have:
+- ✅ Modern static site
+- ✅ Article system
+- ✅ Auto-deployment
+- ✅ Hot reload development
+- ✅ SEO optimized
+- ✅ Fast build times
+
+**Start writing and sharing your knowledge!** 📝
 
 ---
 
-**Ready to start?** Run `bundle exec jekyll serve` and open `http://localhost:4000`! 🚀
+Need help? Check [README.md](README.md) or open an issue!
+
+**Happy coding!** 🚀
