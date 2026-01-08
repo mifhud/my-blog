@@ -1,0 +1,61 @@
+---
+layout: default
+---
+
+<article class="article-page">
+  <header class="article-header">
+    <h1 class="article-title">{{ page.title }}</h1>
+    
+    <div class="article-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+      
+      {% if page.author %}
+      <span class="author">by {{ page.author }}</span>
+      {% endif %}
+      
+      {% if page.category %}
+      <span class="category">{{ page.category }}</span>
+      {% endif %}
+      
+      {% if page.tags %}
+      <div class="tags">
+        {% for tag in page.tags %}
+        <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    
+    {% if page.description %}
+    <p class="article-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="article-content">
+    {{ content }}
+  </div>
+
+  <footer class="article-footer">
+    <div class="article-navigation">
+      {% if page.previous %}
+      <div class="prev-article">
+        <span class="label">← Previous Article</span>
+        <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title }}</a>
+      </div>
+      {% endif %}
+      
+      {% if page.next %}
+      <div class="next-article">
+        <span class="label">Next Article →</span>
+        <a href="{{ page.next.url | relative_url }}">{{ page.next.title }}</a>
+      </div>
+      {% endif %}
+    </div>
+    
+    <div class="back-to-articles">
+      <a href="/articles/">← Back to All Articles</a>
+    </div>
+  </footer>
+</article>
