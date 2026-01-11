@@ -24,10 +24,10 @@ Technical playbooks and guides for modern development practices
 - **DevOps** - Infrastructure, automation, and operational excellence
 - **Security** - Best practices for secure development
 
-[View All Articles →](/articles/)
+[View All Articles →]({{ '/articles/' | url }})
 
 ## About This Site
 
 This site contains technical playbooks, guides, and best practices for modern software development. Each article is designed to be actionable and practical.
 
-[Learn More →](/about/)
+[Learn More →]({{ '/about/' | url }})
