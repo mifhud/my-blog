@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-content">
       <div class="site-branding">
-        <a href="/" class="site-title">
+        <a href="{{ '/' | url }}" class="site-title">
           <span class="logo">📚</span>
           {{ metadata.title }}
         </a>
@@ -18,7 +18,7 @@
         <ul class="nav-menu">
           {% for item in metadata.navigation %}
           <li class="nav-item">
-            <a href="{{ item.url }}" 
+            <a href="{{ item.url | url }}" 
                class="nav-link {% if page.url == item.url %}active{% endif %}">
               {{ item.title }}
             </a>

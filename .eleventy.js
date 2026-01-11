@@ -64,6 +64,7 @@ module.exports = function(eleventyConfig) {
     ],
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
+    pathPrefix: "/my-blog/",
     dir: {
       input: "src",
       includes: "_includes",

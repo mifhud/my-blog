@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if title %}{{ title }} | {% endif %}{{ metadata.title }}</title>
   
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | url }}">
   
   <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }}" href="{{ '/feed.xml' | url }}">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | url }}">
 </head>
 <body>
   {% include "header.njk" %}
@@ -24,6 +24,6 @@
   
   {% include "footer.njk" %}
   
-  <script src="/assets/js/main.js"></script>
+  <script src="{{ '/assets/js/main.js' | url }}"></script>
 </body>
 </html>
