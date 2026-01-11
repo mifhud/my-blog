@@ -1,8 +1,25 @@
-# SonarQube Issue Fixing Playbook with MCP and Claude Code
+---
+layout: article.njk
+title: "SonarQube Issue and Code Smell Fixing with MCP and Claude Code"
+date: 2025-12-09
+category: Code Quality
+tags: 
+  - articles
+  - SonarQube
+  - Claude Code
+  - MCP
+  - Code Quality
+  - Automation
+  - AI Tools
+author: Development Team
+description: "A comprehensive guide to systematically identify and fix SonarQube issues using Claude Code AI integrated with the SonarQube MCP server. Learn how to automate code quality improvements for bugs, vulnerabilities, security hotspots, and code smells."
+---
+
+# SonarQube Issue Fixing article with MCP and Claude Code
 
 ## Overview
 
-This playbook demonstrates how to systematically identify and fix SonarQube issues (bugs, vulnerabilities, security hotspots, and code smells) using Claude Code AI integrated with the SonarQube MCP (Model Context Protocol) server.
+This article demonstrates how to systematically identify and fix SonarQube issues (bugs, vulnerabilities, security hotspots, and code smells) using Claude Code AI integrated with the SonarQube MCP (Model Context Protocol) server.
 
 ### What You'll Learn
 
@@ -36,9 +53,9 @@ This playbook demonstrates how to systematically identify and fix SonarQube issu
         │
         ▼
 ┌─────────────────────────────────────────────────┐
-│          Command Prompts                        │
-│  • sonar-issue-identifier.prompt.md             │
-│  • sonar-code-smells.prompt.md                  │
+│          Commands                               │
+│  • issue-identifier.md                          │
+│  • code-smells.md                               │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -46,7 +63,7 @@ This playbook demonstrates how to systematically identify and fix SonarQube issu
 
 ### Step 1: Configure MCP Server
 
-Create `.mcp.json` in your project root:
+Use [Sonarqube MCP Server](https://github.com/sapientpants/sonarqube-mcp-server). Create `.mcp.json` in your project root:
 
 ```json
 {
@@ -76,15 +93,15 @@ Create `.mcp.json` in your project root:
 | `SONARQUBE_TOKEN` | Authentication token from SonarQube | Generate from User → My Account → Security |
 | `timeout` | Connection timeout in seconds | `60` |
 
-### Step 2: Create Command Prompts Directory
+### Step 2: Create Command Prompts Directory in Project Directory
 
 ```bash
-mkdir -p .github/commands/sonar
+mkdir -p .claude/commands/sonar
 ```
 
 ### Step 3: Create Issue Identifier Prompt
 
-Create `.github/commands/sonar/sonar-issue-identifier.prompt.md`:
+Create `.claude/commands/sonar/issue-identifier.md`:
 
 ```markdown
 # SonarQube Issue Identification
@@ -98,13 +115,13 @@ Develop systematic approach for fixing identified issues:
 Issue: {Sonar Issue Name}
 Error Location Code:
 ## {relative-file-path}:{start-line:end-line}
-```
+\`\`\`
 1: Code Line 1
 2: Code Line 2
 ...
-```
+\`\`\`
+
 Fix Approach: Fix Approach
-```
 
 Save in folder: spec/plan/sonar
 Save in different new files based on type:
@@ -115,7 +132,7 @@ Save in different new files based on type:
 
 ### Step 4: Create Code Smells Prompt
 
-Create `.github/commands/sonar/sonar-code-smells.prompt.md`:
+Create `.claude/commands/sonar/code-smells.md`:
 
 ```markdown
 # SonarQube Code Smells Identification
@@ -129,13 +146,13 @@ Develop systematic approach for fixing identified issues:
 Issue: {Sonar Issue Name}
 Error Location Code:
 ## {relative-file-path}:{start-line:end-line}
-```
+\`\`\`
 1: Code Line 1
 2: Code Line 2
 ...
-```
+\`\`\`
+
 Fix Approach: Fix Approach
-```
 
 Save in folder: spec/plan/sonar
 Save in different severity new file: smell-{severities}-{datemonthhourminutesecond}.md, ...
@@ -149,7 +166,8 @@ Save in different severity new file: smell-{severities}-{datemonthhourminuteseco
 
 ```bash
 # In Claude Code terminal
-claude code --prompt .github/commands/sonar/sonar-issue-identifier.prompt.md
+/sonar:issue-identifier
+Get bugs, vulnerabilities, and security hotspots from sonarqube mcp in {link sonar}.
 ```
 
 **What happens:**
@@ -175,11 +193,12 @@ spec/plan/sonar/
 Issue: Null pointer dereference
 Error Location Code:
 ## src/services/user.service.ts:45:52
-```
+\`\`\`
 45: const userName = user.profile.name;
 46: const userEmail = user.profile.email;
 47: return { userName, userEmail };
-```
+\`\`\`
+
 Fix Approach: Add null check before accessing user.profile
 ```
 
@@ -211,7 +230,8 @@ For each issue, Claude Code will:
 
 ```bash
 # In Claude Code terminal
-claude code --prompt .github/commands/sonar/sonar-code-smells.prompt.md
+/sonar:sonar-code-smells
+Get code smell from sonarqube mcp in {link sonar}.
 ```
 
 **What happens:**
@@ -238,14 +258,15 @@ spec/plan/sonar/
 Issue: Cognitive Complexity is too high
 Error Location Code:
 ## src/utils/validator.ts:120:180
-```
+\`\`\`
 120: function validateUserInput(input: any) {
 121:   if (input) {
 122:     if (input.name) {
 123:       if (input.name.length > 0) {
 124:         if (input.email) {
 125:           // ... deeply nested conditions
-```
+\`\`\`
+
 Fix Approach: Refactor using early returns and extract validation logic
 ```
 
@@ -306,10 +327,8 @@ After implementing fixes:
 
 ```bash
 # 1. Run local tests
-npm test
 
-# 2. Lint code
-npm run lint
+# 2. Lint code (if applicable)
 
 # 3. SonarQube re-scan
 # Claude Code will automatically trigger this
@@ -318,109 +337,6 @@ npm run lint
 # Check that issue is marked as resolved
 ```
 
-### 5. Continuous Integration
-
-Integrate with CI/CD:
-
-```yaml
-# .github/workflows/sonar-quality-gate.yml
-name: SonarQube Quality Gate
-
-on: [push, pull_request]
-
-jobs:
-  sonar:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      
-      - name: Quality Gate Check
-        uses: sonarsource/sonarqube-quality-gate-action@master
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-```
-
-## Advanced Usage
-
-### Custom Filtering
-
-Modify prompts to filter specific components:
-
-```markdown
-# In sonar-issue-identifier.prompt.md
-Get bugs, vulnerabilities, and security hotspots from sonarqube mcp
-FILTER BY:
-- Component: src/api/*
-- Severity: BLOCKER,CRITICAL
-- Status: OPEN
-- Assigned: false
-```
-
-### Multi-Project Support
-
-Configure multiple SonarQube instances:
-
-```json
-{
-    "mcpServers": {
-        "sonarqube-prod": {
-            "type": "stdio",
-            "command": "npx",
-            "args": ["-y", "sonarqube-mcp-server@latest"],
-            "env": {
-                "SONARQUBE_URL": "https://sonar-prod.company.com",
-                "SONARQUBE_TOKEN": "prod-token"
-            }
-        },
-        "sonarqube-staging": {
-            "type": "stdio",
-            "command": "npx",
-            "args": ["-y", "sonarqube-mcp-server@latest"],
-            "env": {
-                "SONARQUBE_URL": "https://sonar-staging.company.com",
-                "SONARQUBE_TOKEN": "staging-token"
-            }
-        }
-    }
-}
-```
-
-### Automated Reporting
-
-Create a scheduled report:
-
-```bash
-# .github/workflows/weekly-sonar-report.yml
-name: Weekly SonarQube Report
-
-on:
-  schedule:
-    - cron: '0 9 * * 1'  # Every Monday at 9 AM
-
-jobs:
-  report:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Generate Report
-        run: |
-          claude code --prompt .github/commands/sonar/sonar-issue-identifier.prompt.md
-          claude code --prompt .github/commands/sonar/sonar-code-smells.prompt.md
-      
-      - name: Upload Reports
-        uses: actions/upload-artifact@v4
-        with:
-          name: sonar-reports
-          path: spec/plan/sonar/
-```
 
 ## Troubleshooting
 
@@ -462,87 +378,16 @@ Total Issue: 0
 **Solution:**
 ```bash
 # Trigger SonarQube scan first
-npm run sonar-scanner
 ```
-
-### Debug Mode
-
-Enable verbose logging:
-
-```json
-{
-    "mcpServers": {
-        "sonarqubev8": {
-            "type": "stdio",
-            "command": "npx",
-            "args": ["-y", "sonarqube-mcp-server@latest"],
-            "env": {
-                "SONARQUBE_URL": "https://your-instance.com",
-                "SONARQUBE_TOKEN": "your-token",
-                "DEBUG": "sonarqube-mcp:*"
-            }
-        }
-    }
-}
-```
-
-## Metrics and KPIs
-
-Track your code quality improvements:
-
-### Weekly Report Format
-
-```markdown
-# SonarQube Quality Report - Week 52, 2024
-
-## Issue Resolution Summary
-- Bugs Fixed: 23 → 5 (-18, 78% reduction)
-- Vulnerabilities: 8 → 0 (-8, 100% resolved)
-- Security Hotspots: 12 → 3 (-9, 75% reduction)
-- Code Smells: 156 → 98 (-58, 37% improvement)
-
-## Technical Debt
-- Before: 15d 6h
-- After: 9d 2h
-- Reduction: 6d 4h (42%)
-
-## Quality Gate Status
-✅ PASSED
-
-## Top Contributors
-1. Claude Code AI - 45 issues fixed
-2. Manual Review - 12 issues fixed
-```
-
-## Resources
-
-### Links
-
-- [SonarQube MCP Server](https://github.com/sapientpants/sonarqube-mcp-server)
-- [Claude Code Documentation](https://docs.claude.com/claude-code/overview)
-- [SonarQube API Documentation](https://docs.sonarqube.org/latest/extension-guide/web-api/)
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-
-### Related Tools
-
-- **SonarLint** - IDE integration for real-time feedback
-- **SonarQube Scanner** - CLI tool for code analysis
-- **Quality Gate Plugin** - CI/CD integration
 
 ## Conclusion
 
-This playbook provides a systematic approach to maintaining code quality using AI-powered automation. By combining Claude Code's intelligence with SonarQube's comprehensive analysis, you can:
+This article provides a systematic approach to maintaining code quality using AI-powered automation. By combining Claude Code's intelligence with SonarQube's comprehensive analysis, you can:
 
 - **Reduce technical debt** by 40-60%
 - **Fix critical issues** in minutes instead of hours
 - **Maintain consistent** code quality standards
-- **Automate** repetitive quality tasks
 - **Scale** quality reviews across large codebases
 
 Start with high-priority issues (security and bugs) and progressively improve code smells. Consistency is key to maintaining high code quality.
 
----
-
-**Version:** 1.0  
-**Last Updated:** January 8, 2025  
-**Maintained By:** Development Team
