@@ -21,7 +21,7 @@ Browse our complete collection of technical playbooks and guides.
   {% for article in collections.articles %}
   <article class="article-item" data-category="{{ article.data.category }}">
     <div class="article-item-content">
-      <h2><a href="{{ article.url }}">{{ article.data.title }}</a></h2>
+      <h2><a href="{{ article.url | url }}">{{ article.data.title }}</a></h2>
       
       <div class="article-meta">
         <time datetime="{{ article.date | dateISO }}">
@@ -47,7 +47,7 @@ Browse our complete collection of technical playbooks and guides.
       <p class="article-description">{{ article.data.description }}</p>
       {% endif %}
       
-      <a href="{{ article.url }}" class="read-more">Read Article →</a>
+      <a href="{{ article.url | url }}" class="read-more">Read Article →</a>
     </div>
   </article>
   {% endfor %}

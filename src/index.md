@@ -12,7 +12,7 @@ Technical playbooks and guides for modern development practices
 
 {% for article in collections.articles %}
   {% if loop.index <= 5 %}
-- **[{{ article.data.title }}]({{ article.url }})** - {{ article.data.description }}
+- **[{{ article.data.title }}]({{ article.url | url }})** - {{ article.data.description }}
   *Published: {{ article.date | dateReadable }}*
   {% endif %}
 {% endfor %}
