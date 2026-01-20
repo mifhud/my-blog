@@ -2,7 +2,7 @@
 layout: article.njk
 title: "Article Title Here"
 date: 2025-01-08
-category: Code Quality  # Choose: Code Quality | CI/CD | DevOps | AI Tools | Security | Performance
+category: Code Quality  # Choose: Code Quality | CI/CD | AI Tools | Security | Performance | Career
 tags:
   - articles
   - tag1
@@ -14,7 +14,7 @@ description: "A brief description of the article for SEO and social media previe
 
 ## Overview
 
-Brief introduction to what this article covers. Explain the problem or topic this playbook addresses.
+Brief introduction to what this article covers. Explain the problem or topic being addressed.
 
 ### What You'll Learn
 
@@ -25,7 +25,7 @@ Brief introduction to what this article covers. Explain the problem or topic thi
 
 ## Prerequisites
 
-List any requirements before following this guide:
+List any requirements before following this tutorial:
 
 - Requirement 1
 - Requirement 2
@@ -233,9 +233,9 @@ Another practical example...
 
 ## Resources
 
-### Documentation
+### References
 
-- [Tool/Service Documentation](https://example.com/docs)
+- [Official Website](https://example.com/docs)
 - [API Reference](https://example.com/api)
 - [GitHub Repository](https://github.com/example/repo)
 

@@ -1,7 +1,7 @@
 {
-  "name": "devops-playbooks",
+  "name": "my-blog",
   "version": "1.0.0",
-  "description": "Technical playbooks and guides for modern development practices",
+  "description": "Personal portfolio and technical blog",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
@@ -9,11 +9,10 @@
     "deploy": "npm run build"
   },
   "keywords": [
-    "devops",
-    "playbooks",
-    "technical-documentation",
+    "blog",
+    "portfolio",
     "eleventy",
-    "blog"
+    "technical-blog"
   ],
   "author": "Your Name",
   "license": "MIT",

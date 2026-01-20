@@ -59,7 +59,7 @@ my-blog/
    layout: article.njk
    title: "Your Article Title"
    date: 2025-01-08
-   category: Code Quality  # Choose: Code Quality | CI/CD | DevOps | AI Tools | Security
+   category: Code Quality  # Choose: Code Quality | CI/CD | AI Tools | Security | Performance | Career
    tags:
      - articles
      - tag1

@@ -1,6 +1,6 @@
-# Contributing to DevOps Playbooks
+# Contributing to My Blog
 
-Thank you for your interest in contributing! This guide will help you get started.
+Thank you for your interest in contributing! Here's how you can help.
 
 ## 🚀 Quick Contribution Guide
 
@@ -9,8 +9,8 @@ Thank you for your interest in contributing! This guide will help you get starte
 ```bash
 # Fork the repository on GitHub
 # Clone your fork
-git clone https://github.com/yourusername/devops-playbooks.git
-cd devops-playbooks
+git clone https://github.com/yourusername/my-blog.git
+cd my-blog
 
 # Install dependencies
 npm install
@@ -71,10 +71,10 @@ description: "Summary"     # Recommended: 150-160 chars
 Choose **one**:
 - Code Quality
 - CI/CD
-- DevOps
 - AI Tools
 - Security
 - Performance
+- Career
 
 ### Content Standards
 
@@ -175,10 +175,10 @@ Include:
 
 ### Articles Needed
 
-- DevOps automation guides
+- Software development tutorials
 - CI/CD pipeline tutorials
 - Code quality best practices
-- Security hardening guides
+- Security best practices
 - Performance optimization tips
 - Tool comparison articles
 
@@ -243,8 +243,8 @@ Include:
 - [Technical Writing Guide](https://developers.google.com/tech-writing)
 
 ### Development
-- [Eleventy Docs](https://www.11ty.dev/docs/)
-- [Nunjucks Docs](https://mozilla.github.io/nunjucks/)
+- [Eleventy Website](https://www.11ty.dev/docs/)
+- [Nunjucks Reference](https://mozilla.github.io/nunjucks/)
 
 ### Tools
 - [Grammarly](https://www.grammarly.com/) - Grammar checking
