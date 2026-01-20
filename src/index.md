@@ -1,12 +1,16 @@
 ---
 layout: base.njk
-title: "DevOps Playbooks"
-description: "Technical playbooks and guides for modern development practices"
+title: "About"
+description: "Software engineer passionate about code quality, automation, and building practical solutions"
 ---
 
-# Welcome to DevOps Playbooks
+# Hi, I'm Miftahul Huda
 
-Technical playbooks and guides for modern development practices
+I'm a software engineer with a passion for building quality software and sharing what I learn along the way. This is my space to document technical insights, experiments, and solutions to real-world problems.
+
+## What I Write About
+
+I focus on practical, actionable content around software development, code quality, and automation. Each article is based on hands-on experience and designed to help you solve real problems.
 
 ## Latest Articles
 
@@ -17,17 +21,4 @@ Technical playbooks and guides for modern development practices
   {% endif %}
 {% endfor %}
 
-## Featured Categories
-
-- **Code Quality** - Tools and practices for maintaining high code standards
-- **CI/CD** - Continuous integration and deployment strategies  
-- **DevOps** - Infrastructure, automation, and operational excellence
-- **Security** - Best practices for secure development
-
 [View All Articles →]({{ '/articles/' | url }})
-
-## About This Site
-
-This site contains technical playbooks, guides, and best practices for modern software development. Each article is designed to be actionable and practical.
-
-[Learn More →]({{ '/about/' | url }})

@@ -1,12 +1,12 @@
 ---
 layout: base.njk
-title: Articles
+title: Blog
 permalink: /articles/
 ---
 
-# All Articles
+# Blog
 
-Browse our complete collection of technical playbooks and guides.
+Practical insights and solutions from real-world software development.
 
 ## Filter by Category
 
@@ -30,16 +30,6 @@ Browse our complete collection of technical playbooks and guides.
         
         {% if article.data.category %}
         <span class="category">{{ article.data.category }}</span>
-        {% endif %}
-        
-        {% if article.data.tags %}
-        <div class="tags">
-          {% for tag in article.data.tags %}
-          {% if tag != "articles" %}
-          <span class="tag">{{ tag }}</span>
-          {% endif %}
-          {% endfor %}
-        </div>
         {% endif %}
       </div>
       

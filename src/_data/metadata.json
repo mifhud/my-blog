@@ -1,5 +1,5 @@
 {
-  "title": "DevOps Playbooks",
+  "title": "Miftahul Huda",
   "author": "Miftahul Huda",
   "url": "https://miftahul-huda.github.io/lms-io",
   "language": "en",
@@ -11,7 +11,7 @@
     "danger": "#dc3545"
   },
   "navigation": [
-    { "title": "Home", "url": "/" },
-    { "title": "Articles", "url": "/articles/" }
+    { "title": "About", "url": "/" },
+    { "title": "Blog", "url": "/articles/" }
   ]
 }
