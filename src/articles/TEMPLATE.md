@@ -2,7 +2,6 @@
 layout: article.njk
 title: "Article Title Here"
 date: 2025-01-08
-category: Code Quality  # Choose: Code Quality | CI/CD | AI Tools | Security | Performance | Career
 author: Your Name
 description: "A brief description of the article for SEO and social media previews. Keep it under 160 characters."
 ---

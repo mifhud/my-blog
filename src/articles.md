@@ -18,10 +18,6 @@ Practical insights and solutions from real-world software development.
         <time datetime="{{ article.date | dateISO }}">
           {{ article.date | dateReadable }}
         </time>
-        
-        {% if article.data.category %}
-        <span class="category">{{ article.data.category }}</span>
-        {% endif %}
       </div>
       
       {% if article.data.description %}

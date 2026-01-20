@@ -79,20 +79,11 @@ cp src/articles/TEMPLATE.md src/articles/YYYY-MM-DD-your-title.md
 layout: article.njk                    # REQUIRED - Must be this exact value
 title: "Your Article Title"           # REQUIRED - 50-60 chars for SEO
 date: YYYY-MM-DD                       # REQUIRED - ISO format
-category: Code Quality                 # REQUIRED - See categories below
 tags: ["articles"]                     # REQUIRED for collections
 author: Your Name                      # Optional
 description: "Brief summary"          # Recommended - Max 160 chars
 ---
 ```
-
-### Valid Categories (choose ONE)
-- Code Quality
-- CI/CD
-- AI Tools
-- Security
-- Performance
-- Career
 
 ### Article Structure (from TEMPLATE.md)
 1. Overview / What You'll Learn
