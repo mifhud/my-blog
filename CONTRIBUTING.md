@@ -131,7 +131,7 @@ Articles: `YYYY-MM-DD-article-title.md`
 
 Examples:
 - `2025-01-08-docker-best-practices.md`
-- `2025-01-15-github-actions-guide.md`
+- `2025-01-15-github-actions-tutorial.md`
 
 ## 🔍 Review Process
 

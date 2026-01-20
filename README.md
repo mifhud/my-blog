@@ -22,7 +22,7 @@ npm run build
 my-blog/
 ├── src/                          # Source files
 │   ├── articles/                 # Article content
-│   │   ├── 2025-01-08-sonarqube-issue-fixing-playbook.md
+│   │   ├── sonarqube-issue-code-smell-fixing.md
 │   │   └── TEMPLATE.md           # Template for new articles
 │   ├── _layouts/                 # Page templates (Nunjucks)
 │   │   ├── base.njk              # Base layout
@@ -102,7 +102,7 @@ npm run build  # Generates _site/ folder
 
 ### Featured Posts:
 
-- **[SonarQube Issue Fixing](src/articles/2025-01-08-sonarqube-issue-fixing-playbook.md)** - How to fix SonarQube issues using Claude Code AI with MCP server integration
+- **[SonarQube Issue Fixing](src/articles/sonarqube-issue-code-smell-fixing.md)** - How to fix SonarQube issues using Claude Code AI with MCP server integration
 
 ## 📧 Contributing
 
