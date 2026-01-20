@@ -8,18 +8,9 @@ permalink: /articles/
 
 Practical insights and solutions from real-world software development.
 
-## Filter by Category
-
-<div class="category-filter">
-  <button class="filter-btn active" data-category="all">All</button>
-  {% for cat in metadata.categories %}
-  <button class="filter-btn" data-category="{{ cat }}">{{ cat }}</button>
-  {% endfor %}
-</div>
-
 <div class="articles-list">
   {% for article in collections.articles %}
-  <article class="article-item" data-category="{{ article.data.category }}">
+  <article class="article-item">
     <div class="article-item-content">
       <h2><a href="{{ article.url | url }}">{{ article.data.title }}</a></h2>
       
@@ -44,36 +35,6 @@ Practical insights and solutions from real-world software development.
 </div>
 
 <style>
-.category-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 2rem 0;
-}
-
-.filter-btn {
-  padding: 0.5rem 1rem;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-
-.filter-btn:hover {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.filter-btn.active {
-  background-color: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
 .articles-list {
   display: flex;
   flex-direction: column;
@@ -107,34 +68,4 @@ Practical insights and solutions from real-world software development.
 .article-item h2 a:hover {
   color: var(--primary-color);
 }
-
-.article-item.hidden {
-  display: none;
-}
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const articles = document.querySelectorAll('.article-item');
-  
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const category = this.dataset.category;
-      
-      // Update active button
-      filterBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      
-      // Filter articles
-      articles.forEach(article => {
-        if (category === 'all' || article.dataset.category === category) {
-          article.classList.remove('hidden');
-        } else {
-          article.classList.add('hidden');
-        }
-      });
-    });
-  });
-});
-</script>

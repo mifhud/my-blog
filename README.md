@@ -60,10 +60,7 @@ my-blog/
    title: "Your Article Title"
    date: 2025-01-08
    category: Code Quality  # Choose: Code Quality | CI/CD | AI Tools | Security | Performance | Career
-   tags:
-     - articles
-     - tag1
-     - tag2
+   tags: ["articles"]
    author: Your Name
    description: "Brief description of your article"
    ---

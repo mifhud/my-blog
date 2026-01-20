@@ -55,7 +55,6 @@ _site/                  # Build output (gitignored) - DO NOT EDIT
 
 ### Collections (Eleventy concept)
 - **articles**: All files in `src/articles/*.md` (reversed, newest first)
-- **tagList**: Auto-generated from all article tags, excluding system tags (all, nav, post, posts)
 
 ### Filters (available in templates)
 - `dateISO` - Converts date to ISO 8601 format
@@ -81,9 +80,7 @@ layout: article.njk                    # REQUIRED - Must be this exact value
 title: "Your Article Title"           # REQUIRED - 50-60 chars for SEO
 date: YYYY-MM-DD                       # REQUIRED - ISO format
 category: Code Quality                 # REQUIRED - See categories below
-tags:                                  # REQUIRED - Must include "articles"
-  - articles
-  - your-tag
+tags: ["articles"]                     # REQUIRED for collections
 author: Your Name                      # Optional
 description: "Brief summary"          # Recommended - Max 160 chars
 ---

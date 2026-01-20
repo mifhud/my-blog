@@ -27,34 +27,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("articles", function(collection) {
     return collection.getFilteredByGlob("src/articles/*.md").reverse();
   });
-  
-  eleventyConfig.addCollection("tagList", function(collection) {
-    let tagSet = new Set();
-    collection.getAll().forEach(function(item) {
-      if( "tags" in item.data ) {
-        let tags = item.data.tags;
-        
-        tags = tags.filter(function(item) {
-          switch(item) {
-            case "all":
-            case "nav":
-            case "post":
-            case "posts":
-              return false;
-            default:
-              return true;
-          }
-        });
-        
-        for (const tag of tags) {
-          tagSet.add(tag);
-        }
-      }
-    });
-    
-    return [...tagSet];
-  });
-  
   return {
     templateFormats: [
       "md",

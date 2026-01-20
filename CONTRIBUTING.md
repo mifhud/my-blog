@@ -57,10 +57,7 @@ layout: article.njk         # Required
 title: "Article Title"      # Required: 50-60 characters
 date: YYYY-MM-DD           # Required: Publication date
 category: Category Name     # Required: See categories below
-tags:                      # Required: Start with "articles"
-  - articles
-  - tag1
-  - tag2
+tags: ["articles"]         # Required for collections
 author: Your Name          # Optional
 description: "Summary"     # Recommended: 150-160 chars
 ---
@@ -185,7 +182,6 @@ Include:
 ### Site Improvements
 
 - Enhanced search functionality
-- Tag cloud visualization
 - Reading time estimates
 - Related articles suggestions
 - Author profiles
