@@ -3,14 +3,6 @@ layout: article.njk
 title: "SonarQube Issue and Code Smell Fixing with MCP and Claude Code"
 date: 2025-12-09
 category: Code Quality
-tags: 
-  - articles
-  - SonarQube
-  - Claude Code
-  - MCP
-  - Code Quality
-  - Automation
-  - AI Tools
 author: Development Team
 description: "A comprehensive guide to systematically identify and fix SonarQube issues using Claude Code AI integrated with the SonarQube MCP server. Learn how to automate code quality improvements for bugs, vulnerabilities, security hotspots, and code smells."
 ---
