@@ -1,6 +1,6 @@
-# DevOps Playbooks
+# My Blog
 
-> Technical playbooks and guides for modern development practices
+> Personal portfolio and technical blog
 
 ## 🚀 Quick Start
 
@@ -19,7 +19,7 @@ npm run build
 ## 📁 Project Structure
 
 ```
-lms.io/
+my-blog/
 ├── src/                          # Source files
 │   ├── articles/                 # Article content
 │   │   ├── 2025-01-08-sonarqube-issue-fixing-playbook.md
@@ -81,9 +81,9 @@ lms.io/
 This site uses **Eleventy (11ty)** static site generator with Node.js and auto-deploys to GitHub Pages.
 
 ### Auto-deployment:
-1. Push changes to `main` branch
+1. Push changes to `feat/v1.0.0` branch
 2. GitHub Actions automatically builds and deploys
-3. Live at: `https://username.github.io/lms-io`
+3. Live at: `https://username.github.io/my-blog`
 
 ### Manual deployment:
 ```bash
@@ -100,9 +100,9 @@ npm run build  # Generates _site/ folder
 
 ## 📝 Articles
 
-### Featured Playbooks:
+### Featured Posts:
 
-- **[SonarQube Issue Fixing Playbook](src/articles/2025-01-08-sonarqube-issue-fixing-playbook.md)** - Comprehensive guide to fix SonarQube issues using Claude Code AI with MCP server integration
+- **[SonarQube Issue Fixing](src/articles/2025-01-08-sonarqube-issue-fixing-playbook.md)** - How to fix SonarQube issues using Claude Code AI with MCP server integration
 
 ## 📧 Contributing
 
