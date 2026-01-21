@@ -14,7 +14,7 @@ layout: base.njk
   </header>
 
   <div class="article-content">
-    {{ content | safe }}
+    {{ content | removeFirstH1 | safe }}
   </div>
 
   <footer class="article-footer">

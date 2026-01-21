@@ -5,8 +5,6 @@ date: 2025-12-09
 tags: ["blog"]
 ---
 
-# SonarQube Issue Fixing article with MCP and Claude Code
-
 ## Overview
 
 This article demonstrates how to systematically identify and fix SonarQube issues (bugs, vulnerabilities, security hotspots, and code smells) using Claude Code AI integrated with the SonarQube MCP (Model Context Protocol) server.

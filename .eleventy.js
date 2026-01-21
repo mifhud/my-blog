@@ -23,6 +23,17 @@ module.exports = function(eleventyConfig) {
     });
   });
   
+  // Current year filter
+  eleventyConfig.addFilter("currentYear", () => {
+    return new Date().getFullYear();
+  });
+  
+  // Remove first H1 tag from content (to avoid title duplication)
+  eleventyConfig.addFilter("removeFirstH1", (content) => {
+    if (!content) return content;
+    return content.replace(/<h1[^>]*>.*?<\/h1>/i, '');
+  });
+  
   // Collections
   eleventyConfig.addCollection("blog", function(collection) {
     return collection.getFilteredByGlob("src/blog/*.md").reverse();
