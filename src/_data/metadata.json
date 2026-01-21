@@ -3,15 +3,9 @@
   "author": "Miftahul Huda",
   "url": "https://miftahul-huda.github.io/lms-io",
   "language": "en",
-  "theme": {
-    "primary": "#0066cc",
-    "secondary": "#6c757d",
-    "success": "#28a745",
-    "warning": "#ffc107",
-    "danger": "#dc3545"
-  },
   "navigation": [
     { "title": "About", "url": "/" },
-    { "title": "Blog", "url": "/blog/" }
+    { "title": "Blog", "url": "/blog/" },
+    { "title": "Projects", "url": "/projects/" }
   ]
 }

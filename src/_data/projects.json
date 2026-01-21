@@ -1,0 +1,11 @@
+{
+  "featured": [
+    {
+      "title": "SonarQube Code Quality Automation",
+      "description": "Comprehensive guide on automating SonarQube code smell fixes and quality improvements in software projects.",
+      "image": "/assets/images/projects/sonarqube.jpg",
+      "url": "/blog/sonarqube-issue-code-smell-fixing/",
+      "badges": ["SonarQube", "Code Quality", "Automation"]
+    }
+  ]
+}

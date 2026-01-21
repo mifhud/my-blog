@@ -1,8 +1,40 @@
+// Theme Toggle
+(function() {
+  // Get theme from localStorage or system preference
+  const getTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  // Set theme
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
+
+  // Initialize theme before page renders
+  setTheme(getTheme());
+})();
+
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
+  // Theme Toggle Button
+  const themeToggle = document.querySelector('.theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
+
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
-  
+
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', function() {
       navMenu.classList.toggle('active');
@@ -68,7 +100,8 @@ style.textContent = `
   }
   
   .copy-button:hover {
-    background-color: var(--secondary-color);
+    opacity: 1;
+    filter: brightness(0.9);
   }
 `;
 document.head.appendChild(style);

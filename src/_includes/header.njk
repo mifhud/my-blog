@@ -2,9 +2,7 @@
   <div class="container">
     <div class="header-content">
       <div class="site-branding">
-        <a href="{{ '/' | url }}" class="site-title">
-          {{ metadata.title }}
-        </a>
+        {# Site branding removed per user request #}
       </div>
       
       <nav class="main-navigation">
@@ -25,6 +23,16 @@
           {% endfor %}
         </ul>
       </nav>
+
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17 10.5C16.5 14.5 13 17 9 17C5 17 2 14 2 10C2 6 5 3 9 3C9.5 3 10 3.1 10.5 3.2C9 4.5 8 6.5 8 9C8 12.3 10.7 15 14 15C15.5 15 16.8 14.4 17.8 13.5C17.3 12 17 11.3 17 10.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </div>
 </header>

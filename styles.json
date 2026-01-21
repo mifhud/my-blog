@@ -1,0 +1,79 @@
+{
+  "style_guide_name": "Minimalist Portfolio Design System",
+  "typography": {
+    "font_family": "Inter, system-ui, -apple-system, sans-serif",
+    "weights": {
+      "heading_hero": 800,
+      "heading_section": 700,
+      "body": 400,
+      "navigation": 500
+    },
+    "hierarchy": {
+      "h1_hero": {
+        "size": "4rem",
+        "line_height": "1.1",
+        "letter_spacing": "-0.02em"
+      },
+      "h2_project_title": {
+        "size": "2.25rem",
+        "line_height": "1.2"
+      },
+      "body_text": {
+        "size": "1.125rem",
+        "line_height": "1.6"
+      },
+      "nav_links": {
+        "size": "0.875rem",
+        "text_transform": "lowercase"
+      }
+    }
+  },
+  "color_palette": {
+    "light_mode": {
+      "background": "#FFFFFF",
+      "text_primary": "#18181B",
+      "text_secondary": "#52525B",
+      "accent": "#14B8A6",
+      "border": "#E4E4E7",
+      "surface": "#F4F4F5"
+    },
+    "dark_mode": {
+      "background": "#000000",
+      "text_primary": "#F4F4F5",
+      "text_secondary": "#A1A1AA",
+      "accent": "#2DD4BF",
+      "border": "#27272A",
+      "surface": "#18181B"
+    }
+  },
+  "layout_and_spacing": {
+    "container_max_width": "1200px",
+    "global_padding": {
+      "desktop": "80px",
+      "mobile": "24px"
+    },
+    "alignment": "center",
+    "hero_section": {
+      "text_align": "center",
+      "max_width": "800px",
+      "margin_bottom": "120px"
+    },
+    "project_grid": {
+      "display": "flex",
+      "gap": "64px",
+      "image_border_radius": "24px"
+    }
+  },
+  "ui_elements": {
+    "navigation_style": "minimalist_top_bar",
+    "links": {
+      "decoration": "none",
+      "hover_effect": "opacity_change",
+      "font_weight": "600"
+    },
+    "images": {
+      "aspect_ratio": "4:5",
+      "shadow": "none"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "my-blog",
   "version": "1.0.0",
-  "description": "Personal portfolio and technical blog",
+  "description": "Personal portfolio and blog",
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
@@ -11,8 +11,7 @@
   "keywords": [
     "blog",
     "portfolio",
-    "eleventy",
-    "technical-blog"
+    "eleventy"
   ],
   "author": "Your Name",
   "license": "MIT",
