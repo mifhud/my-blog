@@ -1,79 +1,71 @@
 {
-  "style_guide_name": "Minimalist Portfolio Design System",
+  "project_name": "Portfolio",
   "typography": {
-    "font_family": "Inter, system-ui, -apple-system, sans-serif",
-    "weights": {
-      "heading_hero": 800,
-      "heading_section": 700,
-      "body": 400,
-      "navigation": 500
-    },
-    "hierarchy": {
-      "h1_hero": {
-        "size": "4rem",
-        "line_height": "1.1",
+    "font_family": "Inter, Montserrat, or Poppins, sans-serif",
+    "headings": {
+      "h1": {
+        "size": "48px",
+        "weight": "700 (Bold)",
         "letter_spacing": "-0.02em"
       },
-      "h2_project_title": {
-        "size": "2.25rem",
-        "line_height": "1.2"
-      },
-      "body_text": {
-        "size": "1.125rem",
-        "line_height": "1.6"
-      },
-      "nav_links": {
-        "size": "0.875rem",
-        "text_transform": "lowercase"
+      "h2": {
+        "size": "32px",
+        "weight": "600 (Semi-bold)",
+        "style": "Typewriter/Cursor effect"
       }
+    },
+    "body": {
+      "size": "16px",
+      "line_height": "1.6",
+      "weight": "400 (Regular)"
+    },
+    "nav_links": {
+      "size": "14px",
+      "weight": "500",
+      "text_transform": "capitalize"
     }
   },
   "color_palette": {
+    "primary_accent": "#2DD4BF",
+    "dark_mode": {
+      "background": "#18181B",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#A1A1AA",
+      "surface": "#27272A",
+      "nav_inactive": "#A1A1AA"
+    },
     "light_mode": {
       "background": "#FFFFFF",
       "text_primary": "#18181B",
       "text_secondary": "#52525B",
-      "accent": "#14B8A6",
-      "border": "#E4E4E7",
-      "surface": "#F4F4F5"
-    },
-    "dark_mode": {
-      "background": "#000000",
-      "text_primary": "#F4F4F5",
-      "text_secondary": "#A1A1AA",
-      "accent": "#2DD4BF",
-      "border": "#27272A",
-      "surface": "#18181B"
+      "surface": "#FFFFFF",
+      "nav_inactive": "#52525B"
     }
   },
-  "layout_and_spacing": {
-    "container_max_width": "1200px",
-    "global_padding": {
-      "desktop": "80px",
-      "mobile": "24px"
+  "ui_components": {
+    "avatar": {
+      "shape": "circle",
+      "border_radius": "50%",
+      "size": "400px"
     },
-    "alignment": "center",
-    "hero_section": {
-      "text_align": "center",
-      "max_width": "800px",
-      "margin_bottom": "120px"
+    "buttons": {
+      "primary": {
+        "border_color": "#2DD4BF",
+        "border_width": "1px",
+        "border_radius": "25px",
+        "padding": "12px 30px",
+        "text_color": "#2DD4BF"
+      }
     },
-    "project_grid": {
-      "display": "flex",
-      "gap": "64px",
-      "image_border_radius": "24px"
+    "icons": {
+      "style": "Circular fill",
+      "background": "#2DD4BF",
+      "icon_color": "Inherit from mode background"
     }
   },
-  "ui_elements": {
-    "navigation_style": "minimalist_top_bar",
-    "links": {
-      "decoration": "none",
-      "hover_effect": "opacity_change",
-      "font_weight": "600"
-    },
-    "images": {
-      "aspect_ratio": "4:5",
-      "shadow": "none"
-    }
+  "layout": {
+    "container_width": "1200px",
+    "header_height": "80px",
+    "spacing_unit": "8px"
   }
 }
