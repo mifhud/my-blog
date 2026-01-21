@@ -540,8 +540,7 @@ a:hover {
   align-items: start;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 80px 0;
-  min-height: calc(100vh - var(--header-height));
+  padding: 60px 0;
 }
 
 .hero-avatar {
@@ -623,7 +622,7 @@ a:hover {
     grid-template-columns: 1fr;
     gap: 40px;
     text-align: center;
-    padding: 60px 0;
+    padding: 0;
   }
 
   .hero-avatar {
@@ -1067,7 +1066,7 @@ a:hover {
 
   .hero-section {
     margin-bottom: 60px;
-    padding: 40px 0;
+    padding: 0;
   }
 
   .project-grid {
