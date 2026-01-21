@@ -45,3 +45,25 @@ coverage/
 # Temporary directories
 tmp/
 temp/
+
+# bv (beads viewer) local config and caches
+.bv/
+.osgrep
+myspec/archive
+.settings
+.mcp.json
+opencode.json
+.jdtls-workspace
+.osgrep
+.claude
+.opencode
+.utcp_config.json
+
+myspec/archive
+.settings
+.mcp.json
+opencode.json
+.jdtls-workspace
+.osgrep
+.claude
+.opencode
