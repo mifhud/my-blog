@@ -1,81 +1,93 @@
-// Theme Toggle
-(function() {
-  // Get theme from localStorage or system preference
-  const getTheme = () => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  };
+// Theme Toggle - Use event delegation for reliability
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.theme-toggle')) {
+    e.preventDefault();
 
-  // Set theme
-  const setTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  };
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-  // Initialize theme before page renders
-  setTheme(getTheme());
-})();
+    console.log('Toggling theme from', currentTheme, 'to', newTheme);
 
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
-  // Theme Toggle Button
-  const themeToggle = document.querySelector('.theme-toggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
+    // Update DOM
+    document.documentElement.setAttribute('data-theme', newTheme);
+
+    // Save to localStorage
+    try {
       localStorage.setItem('theme', newTheme);
-    });
+      console.log('Theme saved to localStorage:', localStorage.getItem('theme'));
+    } catch (e) {
+      console.error('Failed to save theme:', e);
+    }
   }
+});
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-
-  if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', function() {
+// Menu Toggle
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.menu-toggle')) {
+    const menuToggle = e.target.closest('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu) {
       navMenu.classList.toggle('active');
-      this.classList.toggle('active');
-    });
+      menuToggle.classList.toggle('active');
+    }
   }
-  
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href !== '#') {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
+});
+
+// Initialize features when DOM is ready
+(function() {
+  function initializeSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      if (!anchor.hasAttribute('data-smooth-scroll')) {
+        anchor.setAttribute('data-smooth-scroll', 'true');
+        anchor.addEventListener('click', function (e) {
+          const href = this.getAttribute('href');
+          if (href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }
+        });
       }
     });
-  });
-  
-  // Add copy button to code blocks
-  document.querySelectorAll('pre code').forEach(block => {
-    const button = document.createElement('button');
-    button.className = 'copy-button';
-    button.textContent = 'Copy';
-    button.addEventListener('click', () => {
-      navigator.clipboard.writeText(block.textContent).then(() => {
-        button.textContent = 'Copied!';
-        setTimeout(() => {
-          button.textContent = 'Copy';
-        }, 2000);
-      });
+  }
+
+  function initializeCopyButtons() {
+    document.querySelectorAll('pre code').forEach(block => {
+      if (!block.parentElement.querySelector('.copy-button')) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.addEventListener('click', () => {
+          navigator.clipboard.writeText(block.textContent).then(() => {
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+              button.textContent = 'Copy';
+            }, 2000);
+          });
+        });
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(button);
+      }
     });
-    block.parentElement.style.position = 'relative';
-    block.parentElement.appendChild(button);
-  });
-});
+  }
+
+  function initialize() {
+    initializeSmoothScroll();
+    initializeCopyButtons();
+  }
+
+  // Run immediately if DOM is already ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialize);
+  } else {
+    initialize();
+  }
+})();
 
 // Add copy button styles
 const style = document.createElement('style');
