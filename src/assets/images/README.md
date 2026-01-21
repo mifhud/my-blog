@@ -15,9 +15,6 @@
 - **Size:** Keep under 200KB
 - **Purpose:** Featured project showcase images
 
-#### Current Projects Needing Images:
-- `sonarqube.jpg` - SonarQube Code Quality Automation project
-
 ## Adding Images
 
 1. Place your avatar at `src/assets/images/avatar.jpg`
