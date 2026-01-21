@@ -12,6 +12,6 @@
   },
   "navigation": [
     { "title": "About", "url": "/" },
-    { "title": "Blog", "url": "/articles/" }
+    { "title": "Blog", "url": "/blog/" }
   ]
 }

@@ -2,8 +2,7 @@
 layout: article.njk
 title: "Article Title Here"
 date: 2025-01-08
-author: Your Name
-description: "A brief description of the article for SEO and social media previews. Keep it under 160 characters."
+tags: ["blog"]
 ---
 
 ## Overview
@@ -235,8 +234,8 @@ Another practical example...
 
 ### Related Articles
 
-- [Related Article 1](/articles/related-article-1/)
-- [Related Article 2](/articles/related-article-2/)
+- [Related Article 1](/blog/related-article-1/)
+- [Related Article 2](/blog/related-article-2/)
 
 ### External Resources
 
@@ -281,5 +280,4 @@ A: Answer with explanation.
 ---
 
 **Version:** 1.0  
-**Last Updated:** {{ date | dateReadable }}  
-**Author:** {{ author }}
+**Last Updated:** {{ date | dateReadable }}

@@ -24,8 +24,8 @@ module.exports = function(eleventyConfig) {
   });
   
   // Collections
-  eleventyConfig.addCollection("articles", function(collection) {
-    return collection.getFilteredByGlob("src/articles/*.md").reverse();
+  eleventyConfig.addCollection("blog", function(collection) {
+    return collection.getFilteredByGlob("src/blog/*.md").reverse();
   });
   return {
     templateFormats: [

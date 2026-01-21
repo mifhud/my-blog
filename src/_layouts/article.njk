@@ -10,15 +10,7 @@ layout: base.njk
       <time datetime="{{ page.date | dateISO }}">
         {{ page.date | dateReadable }}
       </time>
-      
-      {% if author %}
-      <span class="author">by {{ author }}</span>
-      {% endif %}
     </div>
-    
-    {% if description %}
-    <p class="article-description">{{ description }}</p>
-    {% endif %}
   </header>
 
   <div class="article-content">
@@ -27,8 +19,8 @@ layout: base.njk
 
   <footer class="article-footer">
     <div class="article-navigation">
-      {% set previousPost = collections.articles | getPreviousCollectionItem(page) %}
-      {% set nextPost = collections.articles | getNextCollectionItem(page) %}
+      {% set previousPost = collections.blog | getPreviousCollectionItem(page) %}
+      {% set nextPost = collections.blog | getNextCollectionItem(page) %}
       
       {% if previousPost %}
       <div class="prev-article">
@@ -46,7 +38,7 @@ layout: base.njk
     </div>
     
     <div class="back-to-articles">
-      <a href="{{ '/articles/' | url }}">← Back to All Articles</a>
+      <a href="{{ '/blog/' | url }}">← Back to All Articles</a>
     </div>
   </footer>
 </article>

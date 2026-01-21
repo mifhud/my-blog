@@ -1,15 +1,15 @@
 ---
 layout: base.njk
 title: Blog
-permalink: /articles/
+permalink: /blog/
 ---
 
-# Blog
+# What I Write About
 
-Practical insights and solutions from real-world software development.
+I focus on practical, actionable content around software development, code quality, and automation. Each article is based on hands-on experience and designed to help you solve real problems.
 
 <div class="articles-list">
-  {% for article in collections.articles %}
+  {% for article in collections.blog %}
   <article class="article-item">
     <div class="article-item-content">
       <h2><a href="{{ article.url | url }}">{{ article.data.title }}</a></h2>
@@ -19,10 +19,6 @@ Practical insights and solutions from real-world software development.
           {{ article.date | dateReadable }}
         </time>
       </div>
-      
-      {% if article.data.description %}
-      <p class="article-description">{{ article.data.description }}</p>
-      {% endif %}
       
       <a href="{{ article.url | url }}" class="read-more">Read Article →</a>
     </div>
