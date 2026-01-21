@@ -2,7 +2,6 @@
 layout: article.njk
 title: "Article Title Here"
 date: 2025-01-08
-tags: ["blog"]
 ---
 
 ## Overview

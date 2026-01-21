@@ -2,7 +2,6 @@
 layout: article.njk
 title: "SonarQube Issue and Code Smell Fixing with MCP and Claude Code"
 date: 2025-12-09
-tags: ["blog"]
 ---
 
 ## Overview

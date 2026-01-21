@@ -28,7 +28,7 @@ npm run clean && npm run build
 
 ### Content Flow
 ```
-Markdown files (src/articles/*.md)
+Markdown files (src/blog/*.md)
   ↓ [Gray-matter parses frontmatter]
   ↓ [Eleventy processes with Nunjucks template]
   ↓ [Markdown-it renders content with syntax highlighting]
@@ -38,7 +38,7 @@ Markdown files (src/articles/*.md)
 ### Directory Structure
 ```
 src/
-├── articles/           # Article content (*.md) - Each article must start with YYYY-MM-DD
+├── blog/               # Blog article content (*.md)
 │   └── TEMPLATE.md     # Template for new articles - USE THIS
 ├── _layouts/           # Nunjucks templates
 │   ├── base.njk        # Base HTML structure
@@ -54,7 +54,7 @@ _site/                  # Build output (gitignored) - DO NOT EDIT
 ```
 
 ### Collections (Eleventy concept)
-- **articles**: All files in `src/articles/*.md` (reversed, newest first)
+- **blog**: All files in `src/blog/*.md` (reversed, newest first)
 
 ### Filters (available in templates)
 - `dateISO` - Converts date to ISO 8601 format
@@ -70,7 +70,7 @@ _site/                  # Build output (gitignored) - DO NOT EDIT
 
 **Always use the template:**
 ```bash
-cp src/articles/TEMPLATE.md src/articles/YYYY-MM-DD-your-title.md
+cp src/blog/TEMPLATE.md src/blog/YYYY-MM-DD-your-title.md
 ```
 
 ### Required Frontmatter
@@ -79,7 +79,6 @@ cp src/articles/TEMPLATE.md src/articles/YYYY-MM-DD-your-title.md
 layout: article.njk                    # REQUIRED - Must be this exact value
 title: "Your Article Title"           # REQUIRED - 50-60 chars for SEO
 date: YYYY-MM-DD                       # REQUIRED - ISO format
-tags: ["articles"]                     # REQUIRED for collections
 author: Your Name                      # Optional
 description: "Brief summary"          # Recommended - Max 160 chars
 ---
@@ -113,10 +112,9 @@ npm run build
 ## Common Pitfalls
 
 1. **Incorrect article filename**: Must start with `YYYY-MM-DD-` or it won't be sorted correctly
-2. **Missing "articles" tag**: Articles won't appear in collections without it
-3. **Wrong layout**: Must be `article.njk` not `articles.njk` or `post.njk`
-4. **pathPrefix issues**: All internal links must use `{{ url }}` filter for correct paths
-5. **Forgotten build**: Always run `npm run build` to verify before committing
+2. **Wrong layout**: Must be `article.njk` not `articles.njk` or `post.njk`
+3. **pathPrefix issues**: All internal links must use `{{ url }}` filter for correct paths
+4. **Forgotten build**: Always run `npm run build` to verify before committing
 
 ## Testing Changes
 
@@ -149,7 +147,6 @@ http://localhost:8080/my-blog/articles/your-article/  # Individual article
 ### Frontmatter
 - Use double quotes for strings
 - Date must be YYYY-MM-DD format
-- Tags must be array format (with hyphens)
 
 ### Templates (Nunjucks)
 - Use `{{ variable }}` for output
