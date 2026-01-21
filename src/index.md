@@ -6,7 +6,7 @@ description: "Software engineer passionate about code quality, automation, and b
 
 <section class="hero-section">
   <div class="hero-avatar-container">
-    <img src="/assets/images/profile.jpg" alt="Miftahul Huda" class="hero-avatar" />
+    <img src="{{ '/assets/images/avatar.jpg' | url }}" alt="Miftahul Huda" class="hero-avatar" />
   </div>
 
   <div class="hero-content">
